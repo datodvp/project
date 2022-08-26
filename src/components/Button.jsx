@@ -6,7 +6,7 @@ const Button = (props) => {
   console.log(path);
   return (
     <Link to={path}>
-      <button className="button" style={{ width: props.width }}>
+      <button className="button" style={{ width: props.width || 300 }}>
         {props.children}
       </button>
     </Link>
