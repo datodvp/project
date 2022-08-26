@@ -5,10 +5,14 @@ import Button from "../../components/Button";
 const Landing = () => {
   return (
     <div className="landingPage">
-      <img class="landingLogo" src={Logo} alt="Logo" />
-      <img class="landingImage" src={DesktopLandingImage} alt="Landing" />
-      <Button width={387}>ჩანაწერის დამატება</Button>
-      <Button width={387}>ჩანაწერების სია</Button>
+      <img className="landingLogo" src={Logo} alt="Logo" />
+      <img className="landingImage" src={DesktopLandingImage} alt="Landing" />
+      <Button path="/addLaptop" width={387}>
+        ჩანაწერის დამატება
+      </Button>
+      <Button path="/Laptops" width={387}>
+        ჩანაწერების სია
+      </Button>
     </div>
   );
 };

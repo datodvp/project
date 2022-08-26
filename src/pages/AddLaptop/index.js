@@ -1,1 +1,1 @@
-export { default as AddLaptop } from "./AddLaptop";
+export { default } from "./AddLaptop";

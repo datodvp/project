@@ -12,6 +12,23 @@ body {
   font-family: "HelveticaNeue", sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
+button {
+  padding: 18px 0;
+  background-color: #62a1eb;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
 .landingPage {
   width: 100%;
   height: 100vh;
@@ -27,16 +44,4 @@ body {
 
 .landingPage .landingImage {
   margin-bottom: 123px;
-}
-
-.landingPage button {
-  padding: 18px 0;
-  background-color: #62a1eb;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  cursor: pointer;
 }
