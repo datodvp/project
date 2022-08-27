@@ -42,7 +42,8 @@ const FormUserDetails = () => {
       <div className="field email">
         <label className="labelEmail">
           <div className="container">
-            მეილი <input className="input email" />
+            მეილი{" "}
+            <input className="input email" placeholder="grish777@redberry.ge" />
             <label className="email error">
               უნდა მთავრდებოდეს @redberry.ge-ით
             </label>
@@ -52,7 +53,8 @@ const FormUserDetails = () => {
       <div className="field number">
         <label className="labelNumber">
           <div className="container">
-            ტელეფონის ნომერი <input className="input number" />
+            ტელეფონის ნომერი{" "}
+            <input className="input number" placeholder="+995 577 77 77 77" />
             <label className="number error">
               უნდა აკმაყოფილებდეს ქართული მობ-ნომრის ფორმატს
             </label>

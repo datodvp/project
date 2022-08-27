@@ -46,26 +46,28 @@ const AddLaptop = () => {
       <div className="body">
         {PageDisplay()}
         {/* Buttons display for forms */}
-        {step !== 0 && (
-          <button
-            className="prevButton"
-            onClick={() => {
-              setStep((prevStep) => prevStep - 1);
-            }}
-          >
-            უკან
-          </button>
-        )}
-        {step !== stepNames.length - 1 && (
-          <button
-            className="nextButton"
-            onClick={() => {
-              setStep((prevStep) => prevStep + 1);
-            }}
-          >
-            შემდეგი
-          </button>
-        )}
+        <div className="buttonsContainer">
+          {step !== 0 && (
+            <button
+              className="prevButton"
+              onClick={() => {
+                setStep((prevStep) => prevStep - 1);
+              }}
+            >
+              უკან
+            </button>
+          )}
+          {step !== stepNames.length - 1 && (
+            <button
+              className="nextButton"
+              onClick={() => {
+                setStep((prevStep) => prevStep + 1);
+              }}
+            >
+              შემდეგი
+            </button>
+          )}
+        </div>
       </div>
       <div className="footer">
         <img className="logo2" src={Logo2} />

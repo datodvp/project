@@ -159,7 +159,7 @@ select:focus {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 88px 150px;
+  padding: 88px 150px 0px 150px;
 }
 
 .field.name {
@@ -346,4 +346,20 @@ select:focus {
   color: #2e2e2e;
   font-size: 12px;
   margin: 8px 0;
+}
+
+.buttonsContainer {
+  width: 926px;
+}
+
+.buttonsContainer button {
+  margin: 0 24px;
+}
+
+.buttonsContainer .nextButton {
+  float: right;
+}
+
+.buttonsContainer .prevButton {
+  float: left;
 }
