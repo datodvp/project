@@ -1,5 +1,5 @@
 import Button from "../../components/Button";
-import Vector from "../../assets/photos/Vector.svg";
+import LeftArrow from "../../assets/photos/LeftArrow.svg";
 import Logo2 from "../../assets/photos/Logo2.svg";
 import FormUserDetails from "./FormUserDetails";
 import FormLaptopDetails from "./FormLaptopDetails";
@@ -30,7 +30,7 @@ const AddLaptop = () => {
           }}
           className="previousPage"
         >
-          <img src={Vector} />
+          <img src={LeftArrow} />
         </button>
         {stepNames.map((stepName, index) => {
           return (

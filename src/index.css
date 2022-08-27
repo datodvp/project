@@ -21,6 +21,10 @@ input:focus {
   outline: 1.8px solid #8ac0e2;
 }
 
+select:focus {
+  outline: none;
+}
+
 .landingPage {
   width: 100%;
   height: 100vh;
@@ -55,7 +59,6 @@ input:focus {
 }
 .addLaptop {
   background-color: #f6f6f6;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
@@ -107,7 +110,7 @@ input:focus {
 
 .addLaptop .body {
   background-color: white;
-  width: 63%;
+  width: 1126px;
   height: 100%;
   border-radius: 18px;
   min-height: 700px;
@@ -161,20 +164,29 @@ input:focus {
 
 .field.name {
   display: flex;
-  width: 100%;
+  justify-content: center;
+  column-gap: 15px;
+  width: 925px;
+  margin-bottom: 36px;
 }
 
 .field .labelName {
   display: flex;
   flex-direction: column;
-  padding: 8px 24px;
-  width: 50%;
+  /* padding: 8px 24px; */
+  width: 456px;
   font-size: 18px;
   font-weight: 500;
-  margin-right: 7.5px;
+}
+
+.field .labelName .container {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 24px;
 }
 
 .input.name {
+  width: 407px;
   padding: 19px;
   font-size: 16px;
   border-radius: 8px;
@@ -185,14 +197,20 @@ input:focus {
 .field .labelSurname {
   display: flex;
   flex-direction: column;
-  padding: 8px 24px;
-  width: 50%;
+  /* padding: 8px 24px; */
+  width: 456px;
   font-size: 18px;
   font-weight: 500;
-  margin-left: 7.5px;
+}
+
+.field .labelSurname .container {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 24px;
 }
 
 .input.surname {
+  width: 407px;
   padding: 19px;
   font-size: 16px;
   border-radius: 8px;
@@ -207,6 +225,124 @@ input:focus {
 }
 
 .surname.error {
+  color: #2e2e2e;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.field.team {
+  width: 926px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 37px;
+}
+
+.field.team select {
+  appearance: none;
+  width: 878px;
+  padding: 19px 25px 20px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ebebeb url(./assets//photos/DownArrow.svg) no-repeat 98%;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field.team select option {
+  margin: 40px;
+  background: white;
+  text-shadow: (0px 4px 34px rgba(0, 0, 0, 0.25));
+}
+
+.field.position {
+  width: 926px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.field.position select {
+  appearance: none;
+  width: 878px;
+  padding: 19px 25px 20px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ebebeb url(./assets//photos/DownArrow.svg) no-repeat 98%;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field.position select option {
+  margin: 40px;
+  background: white;
+  text-shadow: (0px 4px 34px rgba(0, 0, 0, 0.25));
+}
+
+.field.email {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  width: 926px;
+  margin-bottom: 36px;
+}
+
+.input.email {
+  width: 878px;
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.field .labelEmail {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field .labelEmail .container {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 24px;
+}
+
+.email.error {
+  color: #2e2e2e;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.field.number {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  width: 926px;
+  margin-bottom: 36px;
+}
+
+.input.number {
+  width: 878px;
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.field .labelNumber {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field .labelNumber .container {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 24px;
+}
+
+.number.error {
   color: #2e2e2e;
   font-size: 12px;
   margin: 8px 0;
