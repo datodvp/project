@@ -17,18 +17,6 @@ a {
   color: white;
 }
 
-button {
-  padding: 18px 0;
-  background-color: #62a1eb;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  cursor: pointer;
-}
-
 .landingPage {
   width: 100%;
   height: 100vh;
@@ -44,4 +32,110 @@ button {
 
 .landingPage .landingImage {
   margin-bottom: 123px;
+}
+
+.landingPage button {
+  padding: 18px 0;
+  background-color: #62a1eb;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.landingPage button:hover {
+  background-color: #4785cc;
+}
+.addLaptop {
+  background-color: #f6f6f6;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.addLaptop .header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 42px;
+}
+
+.addLaptop .header .stepName {
+  margin: 0 66px;
+  position: relative;
+}
+
+.addLaptop .header .stepName.active:after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  left: 10%;
+  bottom: -15px;
+  background-color: black;
+  border-radius: 9px;
+}
+
+.addLaptop .header .previousPage {
+  position: absolute;
+  left: 3.64%;
+  top: 8%;
+  width: 53px;
+  height: 53px;
+  border: none;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  padding-right: 3px;
+}
+
+.addLaptop .header .previousPage:hover {
+  background-color: #bdb8b8;
+}
+
+.addLaptop .body {
+  background-color: white;
+  width: 63%;
+  border-radius: 18px;
+  min-height: 700px;
+}
+
+.addLaptop .body .nextButton {
+  padding: 18px 45px;
+  background-color: #62a1eb;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.addLaptop .body .nextButton:hover {
+  background-color: #4785cc;
+}
+
+.addLaptop .body .prevButton {
+  color: #62a1eb;
+  border: none;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.addLaptop .body .prevButton:hover {
+  color: #4785cc;
+}
+
+.addLaptop .footer .logo2 {
+  margin-top: 67px;
 }
