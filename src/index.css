@@ -54,13 +54,14 @@ a {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
 }
 .addLaptop .header {
   display: flex;
   justify-content: center;
   margin-bottom: 42px;
+  margin-top: 91px;
 }
 
 .addLaptop .header .stepName {
