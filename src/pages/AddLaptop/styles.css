@@ -1,0 +1,341 @@
+/*Start FormUserDetails */
+.landingPage {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.landingPage .landingLogo {
+  margin-bottom: 85px;
+}
+
+.landingPage .landingImage {
+  margin-bottom: 123px;
+}
+
+.landingPage button {
+  padding: 18px 0;
+  background-color: #62a1eb;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.landingPage button:hover {
+  background-color: #4785cc;
+}
+.addLaptop {
+  background-color: #f6f6f6;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.addLaptop .header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 42px;
+  margin-top: 91px;
+}
+
+.addLaptop .header .stepName {
+  margin: 0 66px;
+  position: relative;
+}
+
+.addLaptop .header .stepName.active:after {
+  content: "";
+  position: absolute;
+  width: 80%;
+  height: 2px;
+  left: 10%;
+  bottom: -15px;
+  background-color: black;
+  border-radius: 9px;
+}
+
+.addLaptop .header .previousPage {
+  position: absolute;
+  left: 3.64%;
+  top: 8%;
+  width: 53px;
+  height: 53px;
+  border: none;
+  background-color: #d9d9d9;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  padding-right: 3px;
+}
+
+.addLaptop .header .previousPage:hover {
+  background-color: #bdb8b8;
+}
+
+.addLaptop .body {
+  background-color: white;
+  width: 1126px;
+  height: 100%;
+  border-radius: 18px;
+  min-height: 700px;
+  min-width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.addLaptop .body .nextButton {
+  padding: 18px 45px;
+  background-color: #62a1eb;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 24px;
+  cursor: pointer;
+}
+
+.addLaptop .body .nextButton:hover {
+  background-color: #4785cc;
+}
+
+.addLaptop .body .prevButton {
+  color: #62a1eb;
+  border: none;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.addLaptop .body .prevButton:hover {
+  color: #4785cc;
+}
+
+.addLaptop .footer .logo2 {
+  margin-top: 67px;
+}
+
+.formUserDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 88px 150px 0px 150px;
+}
+
+.field.name {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  width: 925px;
+  margin-bottom: 36px;
+}
+
+.field .labelName {
+  display: flex;
+  flex-direction: column;
+  /* padding: 8px 24px; */
+  width: 456px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field .labelName .container {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 24px;
+}
+
+.input.name {
+  width: 407px;
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.field .labelSurname {
+  display: flex;
+  flex-direction: column;
+  /* padding: 8px 24px; */
+  width: 456px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field .labelSurname .container {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 24px;
+}
+
+.input.surname {
+  width: 407px;
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.name.error {
+  color: #2e2e2e;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.surname.error {
+  color: #2e2e2e;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.field.team {
+  width: 926px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 37px;
+}
+
+.field.team select {
+  appearance: none;
+  width: 878px;
+  padding: 19px 25px 20px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ebebeb url(../../assets/photos/DownArrow.svg) no-repeat 98%;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field.team select option {
+  margin: 40px;
+  background: white;
+  text-shadow: (0px 4px 34px rgba(0, 0, 0, 0.25));
+}
+
+.field.position {
+  width: 926px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+}
+
+.field.position select {
+  appearance: none;
+  width: 878px;
+  padding: 19px 25px 20px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ebebeb url(../../assets/photos/DownArrow.svg) no-repeat 98%;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field.position select option {
+  margin: 40px;
+  background: white;
+  text-shadow: (0px 4px 34px rgba(0, 0, 0, 0.25));
+}
+
+.field.email {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  width: 926px;
+  margin-bottom: 36px;
+}
+
+.input.email {
+  width: 878px;
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.field .labelEmail {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field .labelEmail .container {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 24px;
+}
+
+.email.error {
+  color: #2e2e2e;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.field.number {
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+  width: 926px;
+  margin-bottom: 36px;
+}
+
+.input.number {
+  width: 878px;
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.field .labelNumber {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field .labelNumber .container {
+  display: flex;
+  flex-direction: column;
+  margin: 8px 24px;
+}
+
+.number.error {
+  color: #2e2e2e;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.buttonsContainer {
+  width: 926px;
+}
+
+.buttonsContainer button {
+  margin: 0 24px;
+}
+
+.buttonsContainer .nextButton {
+  float: right;
+}
+
+.buttonsContainer .prevButton {
+  float: left;
+}
+
+/* End FormUserDetails */

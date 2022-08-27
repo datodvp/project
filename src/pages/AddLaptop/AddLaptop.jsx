@@ -1,8 +1,9 @@
 import Button from "../../components/Button";
 import LeftArrow from "../../assets/photos/LeftArrow.svg";
 import Logo2 from "../../assets/photos/Logo2.svg";
-import FormUserDetails from "./FormUserDetails";
-import FormLaptopDetails from "./FormLaptopDetails";
+import FormUserDetails from "./components/FormUserDetails";
+import FormLaptopDetails from "./components/FormLaptopDetails";
+import "./styles.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

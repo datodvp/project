@@ -22,8 +22,8 @@ const FormUserDetails = () => {
         </label>
       </div>
       <div className="field team">
-        <select className="select team">
-          <option selected disabled value="1">
+        <select defaultValue={1} className="select team">
+          <option disabled value="1">
             თიმი
           </option>
           <option value="2">დეველოპმენტი</option>
@@ -31,8 +31,8 @@ const FormUserDetails = () => {
         </select>
       </div>
       <div className="field position">
-        <select className="select position">
-          <option selected disabled value="1">
+        <select defaultValue={1} className="select position">
+          <option disabled value="1">
             პოზიცია
           </option>
           <option value="2">ჯუნიორი</option>
