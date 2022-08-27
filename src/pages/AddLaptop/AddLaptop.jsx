@@ -45,6 +45,7 @@ const AddLaptop = () => {
       </div>
       <div className="body">
         {PageDisplay()}
+        {/* Buttons display for forms */}
         {step !== 0 && (
           <button
             className="prevButton"

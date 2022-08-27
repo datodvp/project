@@ -17,6 +17,10 @@ a {
   color: white;
 }
 
+input:focus {
+  outline: 1.8px solid #8ac0e2;
+}
+
 .landingPage {
   width: 100%;
   height: 100vh;
@@ -104,8 +108,13 @@ a {
 .addLaptop .body {
   background-color: white;
   width: 63%;
+  height: 100%;
   border-radius: 18px;
   min-height: 700px;
+  min-width: 750px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .addLaptop .body .nextButton {
@@ -139,4 +148,66 @@ a {
 
 .addLaptop .footer .logo2 {
   margin-top: 67px;
+}
+
+.formUserDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 88px 150px;
+}
+
+.field.name {
+  display: flex;
+  width: 100%;
+}
+
+.field .labelName {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 24px;
+  width: 50%;
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 7.5px;
+}
+
+.input.name {
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.field .labelSurname {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 24px;
+  width: 50%;
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 7.5px;
+}
+
+.input.surname {
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.name.error {
+  color: #2e2e2e;
+  font-size: 12px;
+  margin: 8px 0;
+}
+
+.surname.error {
+  color: #2e2e2e;
+  font-size: 12px;
+  margin: 8px 0;
 }
