@@ -1,18 +1,18 @@
 import Logo from "../../assets/photos/Logo.svg";
 import DesktopLandingImage from "../../assets/photos/DesktopLandingImage.png";
-import Button from "../../components/Button";
+import ButtonLink from "../../components/ButtonLink";
 
 const Landing = () => {
   return (
     <div className="landingPage">
       <img className="landingLogo" src={Logo} alt="Logo" />
       <img className="landingImage" src={DesktopLandingImage} alt="Landing" />
-      <Button path="/addLaptop" width={387}>
+      <ButtonLink path="/addLaptop" width={387}>
         ჩანაწერის დამატება
-      </Button>
-      <Button path="/Laptops" width={387}>
+      </ButtonLink>
+      <ButtonLink path="/Laptops" width={387}>
         ჩანაწერების სია
-      </Button>
+      </ButtonLink>
     </div>
   );
 };

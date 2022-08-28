@@ -92,6 +92,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 50px;
 }
 
 .addLaptop .body .nextButton {
@@ -339,3 +340,375 @@
 }
 
 /* End FormUserDetails */
+
+/* Start FormLaptopDetails */
+
+.formLaptopDetails {
+  width: 1126px;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  margin: 68px 174px 0px 174px;
+}
+
+.formLaptopDetails .container {
+  width: 878px;
+}
+
+.uploadPhoto {
+  width: 100%;
+  height: 423px;
+  background-color: #f6f6f6;
+  border: 2px dashed #4386a9;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.uploadPhoto .error.img {
+  display: none;
+}
+
+.uploadPhoto label.text {
+  width: 195px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #4386a9;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.uploadLabel {
+  width: 233px;
+  height: 60px;
+  background-color: #62a1eb;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: 500px;
+  cursor: pointer;
+  margin-top: 65px;
+}
+
+.field.laptopName {
+  display: flex;
+  margin-bottom: 44px;
+}
+
+.field .labelLaptopName {
+  display: flex;
+  flex-direction: column;
+  /* padding: 8px 24px; */
+  width: 456px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field .labelLaptopName .laptopNameContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.input.laptopName {
+  width: 407px;
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.laptopName.error {
+  font-size: 14px;
+  font-weight: 300;
+  color: #2e2e2e;
+  margin: 8px 0;
+}
+
+.field.laptopBrand {
+  width: 456px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.field.laptopBrand select {
+  appearance: none;
+  width: 408px;
+  padding: 19px 25px 20px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ebebeb url(../../assets/photos/DownArrow.svg) no-repeat 98%;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.field.laptopBrand select option {
+  margin: 40px;
+  background: white;
+  text-shadow: (0px 4px 34px rgba(0, 0, 0, 0.25));
+}
+
+.field.laptopBrand .laptopBrandContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.dividerLine {
+  margin-bottom: 50px;
+}
+/* START CPU DROPDOWN STYLING */
+.CPUField {
+}
+
+.CPUField .inputsContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.CPUField .CPUBrand {
+  appearance: none;
+  width: 277px;
+  height: 60px;
+  padding: 19px 25px 20px 16px;
+  border: none;
+  border-radius: 8px;
+  background: #ebebeb url(../../assets/photos/DownArrow.svg) no-repeat 98%;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.CPUField .CPUBrand option {
+  background-color: white;
+}
+
+/* END CPU DROPDOWN STYLING */
+
+/* START CPU CORES STYLING */
+
+.labelCPUCores {
+  width: 324px;
+}
+
+.labelCPUCores .CPUCoresContainer {
+  font-size: 18px;
+  font-weight: 500;
+  width: 280px;
+  margin-left: auto;
+}
+
+.inputCPUCores {
+  width: 276px;
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.CPUCores.error {
+  font-size: 14px;
+  font-weight: 300px;
+}
+
+/* END CPU CORES STYLING */
+
+/* START CPU THREADS STYLING */
+
+.labelCPUThreads {
+  width: 324px;
+}
+
+.labelCPUThreads .CPUThreadsContainer {
+  font-size: 18px;
+  font-weight: 500;
+  width: 280px;
+  margin-left: auto;
+}
+
+.inputCPUThreads {
+  width: 276px;
+  padding: 19px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1.8px solid #8ac0e2;
+  margin-top: 3px;
+}
+
+.CPUThreads.error {
+  font-size: 14px;
+  font-weight: 300px;
+}
+
+/* END CPU THREADS STYLING */
+
+/* START OF MEMORY STYLING */
+
+.RAM::-webkit-outer-spin-button,
+.RAM::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.memoryInputsWrapper {
+  width: 100%;
+}
+
+.memoryInputsContainer {
+  width: 100%;
+  display: flex;
+  margin-bottom: 52px;
+}
+
+.labelRAM {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.labelRAM .error {
+  font-size: 14px;
+  color: #2e2e2e;
+}
+
+.RAM {
+  width: 407px;
+  padding: 19px 16px 20px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #8ac0e2;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 63px;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.labelSSD {
+  margin-right: 60px;
+}
+
+.labelHDD {
+  margin-left: 5px;
+}
+
+.hardDiskInput .name {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+/* END OF MEMORY STYLING */
+
+/* START OF LAPTOP INFO STYLING */
+
+.laptopInfoContainer {
+  width: 100%;
+  display: flex;
+  margin-bottom: 52px;
+}
+
+.labelDate {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.labelDate .error {
+  font-size: 14px;
+  color: #2e2e2e;
+}
+
+.date {
+  width: 407px;
+  padding: 19px 16px 20px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #8ac0e2;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 63px;
+}
+
+.labelPrice {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.labelPrice .error {
+  font-size: 14px;
+  color: #2e2e2e;
+}
+
+.price {
+  width: 407px;
+  padding: 19px 16px 20px 16px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid #8ac0e2;
+  border-radius: 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  margin-right: 63px;
+}
+
+/* END OF LAPTOP INFO STYLING */
+
+/* START OF LAPTOP CONDITION STYLING */
+
+.conditionInputsWrapper {
+  width: 100%;
+}
+
+.conditionInputsContainer {
+  width: 100%;
+  display: flex;
+  margin-bottom: 52px;
+}
+
+.labelCondition {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.labelNew {
+  margin-right: 60px;
+}
+
+.labelOld {
+  margin-left: 5px;
+}
+
+.conditionInput .name {
+  display: inline-block;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* END OF LAPTOP CONDITION STYLING */

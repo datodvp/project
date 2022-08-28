@@ -1,4 +1,3 @@
-import Button from "../../components/Button";
 import LeftArrow from "../../assets/photos/LeftArrow.svg";
 import Logo2 from "../../assets/photos/Logo2.svg";
 import FormUserDetails from "./components/FormUserDetails";
@@ -19,6 +18,8 @@ const AddLaptop = () => {
         return <FormUserDetails />;
       case 1:
         return <FormLaptopDetails />;
+      default:
+        break;
     }
   };
 
@@ -31,7 +32,7 @@ const AddLaptop = () => {
           }}
           className="previousPage"
         >
-          <img src={LeftArrow} />
+          <img src={LeftArrow} alt="arrow" />
         </button>
         {stepNames.map((stepName, index) => {
           return (
@@ -48,6 +49,7 @@ const AddLaptop = () => {
         {PageDisplay()}
         {/* Buttons display for forms */}
         <div className="buttonsContainer">
+          {/* If its first step of the form dont show Back button */}
           {step !== 0 && (
             <button
               className="prevButton"
@@ -58,7 +60,8 @@ const AddLaptop = () => {
               უკან
             </button>
           )}
-          {step !== stepNames.length - 1 && (
+          {/* If its last step of the form dont show Next button instead show Submit */}
+          {step !== stepNames.length - 1 ? (
             <button
               className="nextButton"
               onClick={() => {
@@ -67,11 +70,20 @@ const AddLaptop = () => {
             >
               შემდეგი
             </button>
+          ) : (
+            <button
+              className="nextButton"
+              onClick={() => {
+                setStep((prevStep) => prevStep + 1);
+              }}
+            >
+              შენახვა
+            </button>
           )}
         </div>
       </div>
       <div className="footer">
-        <img className="logo2" src={Logo2} />
+        <img className="logo2" alt="arrow" src={Logo2} />
       </div>
     </div>
   );
