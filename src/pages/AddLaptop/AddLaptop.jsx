@@ -3,7 +3,7 @@ import Logo2 from "../../assets/photos/Logo2.svg";
 import FormUserDetails from "./components/FormUserDetails";
 import FormLaptopDetails from "./components/FormLaptopDetails";
 import "./styles.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddLaptop = () => {
@@ -24,23 +24,20 @@ const AddLaptop = () => {
 
   const navigate = useNavigate();
 
-  const PageDisplay = () => {
-    switch (step) {
-      case 0:
-        return (
-          <FormUserDetails formData={formData} setFormData={setFormData} />
-        );
-      case 1:
-        return (
-          <FormLaptopDetails formData={formData} setFormData={setFormData} />
-        );
-      default:
-        break;
-    }
-  };
+  const checkUserFormVaildity = () => {
+    let validated = true;
+    const requiredInputs = document
+      .getElementById("userForm")
+      .querySelectorAll("[required]");
 
-  const formSubmit = () => {
-    console.log(formData);
+    for (let input of requiredInputs) {
+      input.reportValidity();
+      if (!input.checkValidity()) {
+        validated = false;
+        break;
+      }
+    }
+    return validated;
   };
 
   return (
@@ -65,13 +62,23 @@ const AddLaptop = () => {
           );
         })}
       </div>
-      <div className="body">
-        {PageDisplay()}
+      <form className="body">
+        <FormUserDetails
+          step={step}
+          formData={formData}
+          setFormData={setFormData}
+        />
+        <FormLaptopDetails
+          step={step}
+          formData={formData}
+          setFormData={setFormData}
+        />
         {/* Buttons display for forms */}
         <div className="buttonsContainer">
           {/* If its first step of the form dont show Back button */}
           {step !== 0 && (
             <button
+              type="button"
               className="prevButton"
               onClick={() => {
                 setStep((prevStep) => prevStep - 1);
@@ -80,23 +87,31 @@ const AddLaptop = () => {
               უკან
             </button>
           )}
-          {/* If its last step of the form dont show Next button instead show Submit */}
           {step !== stepNames.length - 1 ? (
-            <button
-              className="nextButton"
-              onClick={() => {
-                setStep((prevStep) => prevStep + 1);
-              }}
-            >
-              შემდეგი
-            </button>
+            <>
+              <button
+                type="button"
+                className="nextButton"
+                onClick={() => {
+                  if (checkUserFormVaildity()) {
+                    setStep((prevStep) => prevStep + 1);
+                  }
+                }}
+              >
+                შემდეგი
+              </button>
+            </>
           ) : (
-            <button className="nextButton" onClick={formSubmit}>
-              შენახვა
-            </button>
+            <>
+              {/* This part of small string for some reason changes behaviour of submit button (this is actually a question
+                for stack overflow but i need to atriculate it better yet)  */}
+              {""}
+              <button className="nextButton">შენახვა</button>
+            </>
           )}
+          {/* If its last step of the form dont show Next button instead show Submit */}
         </div>
-      </div>
+      </form>
       <div className="footer">
         <img className="logo2" alt="arrow" src={Logo2} />
       </div>

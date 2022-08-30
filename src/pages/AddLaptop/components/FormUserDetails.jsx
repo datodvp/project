@@ -1,15 +1,22 @@
 import React from "react";
 
 const FormUserDetails = (props) => {
-  const { formData, setFormData } = props;
+  const { formData, setFormData, step } = props;
+
   return (
-    <div className="formUserDetails">
+    <div
+      id="userForm"
+      className="formUserDetails"
+      style={step === 0 ? { display: "flex" } : { display: "none" }}
+    >
       <div className="field name">
         <label className="labelName">
           <div className="container">
             სახელი{" "}
             <input
               className="input name"
+              name="name"
+              required
               value={formData.name}
               onChange={(e) => {
                 setFormData({ ...formData, name: e.target.value });
@@ -25,6 +32,8 @@ const FormUserDetails = (props) => {
             გვარი{" "}
             <input
               className="input surname"
+              name="surname"
+              required
               value={formData.surname}
               onChange={(e) => {
                 setFormData({ ...formData, surname: e.target.value });
@@ -60,6 +69,8 @@ const FormUserDetails = (props) => {
             მეილი{" "}
             <input
               className="input email"
+              name="email"
+              required
               placeholder="grish777@redberry.ge"
               value={formData.email}
               onChange={(e) => {
@@ -78,6 +89,8 @@ const FormUserDetails = (props) => {
             ტელეფონის ნომერი{" "}
             <input
               className="input number"
+              name="phone_number"
+              required
               placeholder="+995 577 77 77 77"
               value={formData.number}
               onChange={(e) => {

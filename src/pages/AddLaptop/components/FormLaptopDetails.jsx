@@ -1,9 +1,25 @@
+import { useEffect } from "react";
 import ErrorImg from "../../../assets/photos/Error.svg";
 
 const FormLaptopDetails = (props) => {
-  const { formData, setFormData } = props;
+  const { formData, setFormData, step } = props;
+
+  // useEffect(() => {
+  //   setFormData({
+  //     ...formData,
+  //     condition: document.querySelectorAll("input[name='condition']:checked"),
+  //   });
+  // }, []);
+
+  // useEffect(() => {
+  //   console.log(formData);
+  // }, [formData]);
+
   return (
-    <div className="formLaptopDetails">
+    <div
+      className="formLaptopDetails"
+      style={step === 1 ? { display: "flex" } : { display: "none" }}
+    >
       <div className="container">
         <div className="uploadPhoto">
           <img src={ErrorImg} alt="error" className="error img" />
@@ -18,6 +34,8 @@ const FormLaptopDetails = (props) => {
             <div className="laptopNameContainer">
               სახელი{" "}
               <input
+                name="laptop_name"
+                required
                 className="input laptopName"
                 value={formData.laptopName}
                 onChange={(e) => {
@@ -56,6 +74,7 @@ const FormLaptopDetails = (props) => {
                 CPU-ს ბირთვი{" "}
                 <input
                   className="inputCPUCores"
+                  name="laptop_cpu_cores"
                   placeholder="14"
                   value={formData.CPUCores}
                   onChange={(e) => {
@@ -70,6 +89,7 @@ const FormLaptopDetails = (props) => {
                 CPU-ს ნაკადი{" "}
                 <input
                   className="inputCPUThreads"
+                  name="laptop_cpu_threads"
                   placeholder="64"
                   value={formData.CPUThreads}
                   onChange={(e) => {
@@ -88,6 +108,7 @@ const FormLaptopDetails = (props) => {
               <input
                 type="number"
                 className="RAM"
+                name="laptop_ram"
                 value={formData.RAM}
                 onChange={(e) => {
                   setFormData({ ...formData, RAM: e.target.value });
@@ -119,6 +140,7 @@ const FormLaptopDetails = (props) => {
             <input
               type="number"
               className="price"
+              name="laptop_price"
               value={formData.price}
               onChange={(e) => {
                 setFormData({ ...formData, price: e.target.value });
@@ -138,6 +160,12 @@ const FormLaptopDetails = (props) => {
                     className="new"
                     name="condition"
                     value="new"
+                    onClick={(e) => {
+                      setFormData({
+                        ...formData,
+                        condition: e.target.value,
+                      });
+                    }}
                   />{" "}
                   ახალი
                 </label>
@@ -147,6 +175,12 @@ const FormLaptopDetails = (props) => {
                     className="old"
                     name="condition"
                     value="old"
+                    onClick={(e) => {
+                      setFormData({
+                        ...formData,
+                        condition: e.target.value,
+                      });
+                    }}
                   />{" "}
                   მეორადი
                 </label>
