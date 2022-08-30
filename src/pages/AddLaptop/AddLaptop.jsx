@@ -53,8 +53,19 @@ const AddLaptop = () => {
     return validated;
   };
 
-  const checkValidityOfField = () => {
-    checkUserFormVaildity();
+  const checkValidityOfField = (e) => {
+    console.log(e);
+    const field = e.target;
+    if (!field.checkValidity()) {
+      field.style.border = "1px solid red";
+      field.parentElement.style.color = "red";
+      if (field.nextSibling) field.nextSibling.style.color = "red";
+    } else {
+      field.style.border = "1px solid #8ac0e2";
+      field.parentElement.style.color = "black";
+      if (field.nextSibling) field.nextSibling.style.color = "black";
+    }
+    // checkUserFormVaildity();
   };
 
   const handleSubmit = (e) => {
