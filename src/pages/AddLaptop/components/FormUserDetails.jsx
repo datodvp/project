@@ -1,7 +1,7 @@
 import React from "react";
 
 const FormUserDetails = (props) => {
-  const { formData, setFormData, step } = props;
+  const { formData, setFormData, step, checkValidityOfField } = props;
 
   return (
     <div
@@ -12,12 +12,13 @@ const FormUserDetails = (props) => {
       <div className="field name">
         <label className="labelName">
           <div className="container">
-            სახელი{" "}
+            <p className="error">სახელი</p>{" "}
             <input
               className="input name"
               name="name"
               required
               value={formData.name}
+              onBlur={checkValidityOfField}
               onChange={(e) => {
                 setFormData({ ...formData, name: e.target.value });
               }}
@@ -35,6 +36,7 @@ const FormUserDetails = (props) => {
               name="surname"
               required
               value={formData.surname}
+              onBlur={checkValidityOfField}
               onChange={(e) => {
                 setFormData({ ...formData, surname: e.target.value });
               }}
@@ -46,7 +48,12 @@ const FormUserDetails = (props) => {
         </label>
       </div>
       <div className="field team">
-        <select defaultValue={""} className="select team" required>
+        <select
+          defaultValue={""}
+          className="select team"
+          onBlur={checkValidityOfField}
+          required
+        >
           <option disabled value="">
             თიმი
           </option>
@@ -55,7 +62,12 @@ const FormUserDetails = (props) => {
         </select>
       </div>
       <div className="field position">
-        <select defaultValue={""} className="select position" required>
+        <select
+          onBlur={checkValidityOfField}
+          defaultValue={""}
+          className="select position"
+          required
+        >
           <option disabled value="">
             პოზიცია
           </option>
@@ -68,6 +80,7 @@ const FormUserDetails = (props) => {
           <div className="container">
             მეილი{" "}
             <input
+              onBlur={checkValidityOfField}
               className="input email"
               name="email"
               required
@@ -88,6 +101,7 @@ const FormUserDetails = (props) => {
           <div className="container">
             ტელეფონის ნომერი{" "}
             <input
+              onBlur={checkValidityOfField}
               className="input number"
               name="phone_number"
               required

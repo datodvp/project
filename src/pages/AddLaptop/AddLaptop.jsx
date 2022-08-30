@@ -3,7 +3,7 @@ import Logo2 from "../../assets/photos/Logo2.svg";
 import FormUserDetails from "./components/FormUserDetails";
 import FormLaptopDetails from "./components/FormLaptopDetails";
 import "./styles.css";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddLaptop = () => {
@@ -26,19 +26,30 @@ const AddLaptop = () => {
 
   const checkUserFormVaildity = () => {
     let validated = true;
+    console.log("shemowmeba");
     const requiredFields = document
       .getElementById("userForm")
       .querySelectorAll("[required]");
     console.log(requiredFields);
 
     for (let field of requiredFields) {
-      field.reportValidity();
       if (!field.checkValidity()) {
+        field.style.border = "1px solid red";
+        field.parentElement.style.color = "red";
+        if (field.nextSibling) field.nextSibling.style.color = "red";
+
         validated = false;
-        break;
+      } else {
+        field.style.border = "1px solid #8ac0e2";
+        field.parentElement.style.color = "black";
+        if (field.nextSibling) field.nextSibling.style.color = "black";
       }
     }
     return validated;
+  };
+
+  const checkValidityOfField = () => {
+    checkUserFormVaildity();
   };
 
   return (
@@ -68,6 +79,7 @@ const AddLaptop = () => {
           step={step}
           formData={formData}
           setFormData={setFormData}
+          checkValidityOfField={checkValidityOfField}
         />
         <FormLaptopDetails
           step={step}
