@@ -12,25 +12,30 @@ const AddLaptop = () => {
   const [formData, setFormData] = useState({
     name: "",
     surname: "",
+    team_id: "",
+    position_id: "",
+    phone_number: "",
     email: "",
-    number: "",
-    laptopName: "",
-    CPUCores: "",
-    CPUThreads: "",
-    RAM: "",
-    price: "",
-    condition: "",
+    laptop_name: "",
+    laptop_image: "",
+    laptop_brand_id: "",
+    laptop_cpu: "",
+    laptop_cpu_cores: "",
+    laptop_cpu_threads: "",
+    laptop_ram: "",
+    laptop_hard_drive_type: "",
+    laptop_state: "",
+    laptop_price: "",
+    token: "6cd88074ef568dd8ca75490f67b351c7",
   });
 
   const navigate = useNavigate();
 
   const checkUserFormVaildity = () => {
     let validated = true;
-    console.log("shemowmeba");
     const requiredFields = document
       .getElementById("userForm")
       .querySelectorAll("[required]");
-    console.log(requiredFields);
 
     for (let field of requiredFields) {
       if (!field.checkValidity()) {
@@ -50,6 +55,33 @@ const AddLaptop = () => {
 
   const checkValidityOfField = () => {
     checkUserFormVaildity();
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const formattedData = new FormData(e.target);
+
+    const imageInput = document.querySelector('input[type="file"]');
+
+    formattedData.append("token", formData.token);
+    formattedData.append("laptop_image", imageInput.files[0]);
+
+    let url = "https://pcfy.redberryinternship.ge/api/laptop/create";
+
+    fetch(url, {
+      method: "post",
+      body: formattedData,
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -74,7 +106,11 @@ const AddLaptop = () => {
           );
         })}
       </div>
-      <form className="body">
+      <form
+        onSubmit={handleSubmit}
+        className="body"
+        encType="multipart/form-data"
+      >
         <FormUserDetails
           step={step}
           formData={formData}

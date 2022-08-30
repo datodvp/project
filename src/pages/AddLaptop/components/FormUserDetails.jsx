@@ -49,8 +49,12 @@ const FormUserDetails = (props) => {
       </div>
       <div className="field team">
         <select
-          defaultValue={""}
+          value={formData.team_id}
+          onChange={(e) => {
+            setFormData({ ...formData, team_id: e.target.value });
+          }}
           className="select team"
+          name="team_id"
           onBlur={checkValidityOfField}
           required
         >
@@ -64,15 +68,19 @@ const FormUserDetails = (props) => {
       <div className="field position">
         <select
           onBlur={checkValidityOfField}
-          defaultValue={""}
+          value={formData.position_id}
+          onChange={(e) => {
+            setFormData({ ...formData, position_id: e.target.value });
+          }}
+          name="position_id"
           className="select position"
           required
         >
           <option disabled value="">
             პოზიცია
           </option>
-          <option value="2">ჯუნიორი</option>
-          <option value="3">მიდლი</option>
+          <option value="1">ჯუნიორი</option>
+          <option value="2">მიდლი</option>
         </select>
       </div>
       <div className="field email">
@@ -106,9 +114,9 @@ const FormUserDetails = (props) => {
               name="phone_number"
               required
               placeholder="+995 577 77 77 77"
-              value={formData.number}
+              value={formData.phone_number}
               onChange={(e) => {
-                setFormData({ ...formData, number: e.target.value });
+                setFormData({ ...formData, phone_number: e.target.value });
               }}
             />
             <label className="number error">

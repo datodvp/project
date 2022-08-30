@@ -26,7 +26,15 @@ const FormLaptopDetails = (props) => {
           <label className="text">ჩააგდე ან ატვირთე ლეპტოპის ფოტო</label>
           <label className="uploadLabel">
             ატვირთე
-            <input type="file" className="uploadInput" />
+            <input
+              required
+              type="file"
+              className="uploadInput"
+              value={formData.laptop_image}
+              onChange={(e) => {
+                setFormData({ ...formData, laptop_image: e.target.value });
+              }}
+            />
           </label>
         </div>
         <div className="field laptopName">
@@ -37,9 +45,9 @@ const FormLaptopDetails = (props) => {
                 name="laptop_name"
                 required
                 className="input laptopName"
-                value={formData.laptopName}
+                value={formData.laptop_name}
                 onChange={(e) => {
-                  setFormData({ ...formData, laptopName: e.target.value });
+                  setFormData({ ...formData, laptop_name: e.target.value });
                 }}
               />
               <label className="laptopName error">
@@ -49,12 +57,20 @@ const FormLaptopDetails = (props) => {
           </label>
           <div className="field laptopBrand">
             <div className="laptopBrandcontainer">
-              <select defaultValue={1} className="select laptopBrand">
-                <option disabled value="1">
+              <select
+                name="laptop_brand_id"
+                required
+                value={formData.laptop_brand_id}
+                onChange={(e) => {
+                  setFormData({ ...formData, laptop_brand_id: e.target.value });
+                }}
+                className="select laptopBrand"
+              >
+                <option disabled value="">
                   ბრენდი
                 </option>
-                <option value="2">Asus</option>
-                <option value="3">Intel</option>
+                <option value="1">AMD</option>
+                <option value="2">Intel</option>
               </select>
             </div>
           </div>
@@ -62,12 +78,20 @@ const FormLaptopDetails = (props) => {
         <hr className="dividerLine" />
         <div className="CPUField">
           <div className="inputsContainer">
-            <select defaultValue={1} className="select CPUBrand choose1">
-              <option disabled value="1">
+            <select
+              name="laptop_cpu"
+              required
+              value={formData.laptop_cpu}
+              onChange={(e) => {
+                setFormData({ ...formData, laptop_cpu: e.target.value });
+              }}
+              className="select CPUBrand choose1"
+            >
+              <option disabled value="">
                 CPU
               </option>
-              <option value="2">Intel</option>
-              <option value="3">AMD</option>
+              <option value="Intel Core i3">Intel Core i3</option>
+              <option value="2">AMD</option>
             </select>
             <label className="labelCPUCores choose">
               <div className="CPUCoresContainer">
@@ -76,9 +100,13 @@ const FormLaptopDetails = (props) => {
                   className="inputCPUCores"
                   name="laptop_cpu_cores"
                   placeholder="14"
-                  value={formData.CPUCores}
+                  required
+                  value={formData.laptop_cpu_cores}
                   onChange={(e) => {
-                    setFormData({ ...formData, CPUCores: e.target.value });
+                    setFormData({
+                      ...formData,
+                      laptop_cpu_cores: e.target.value,
+                    });
                   }}
                 />
                 <label className="CPUCores error">{"მხოლოდ ციფრები"}</label>
@@ -91,9 +119,13 @@ const FormLaptopDetails = (props) => {
                   className="inputCPUThreads"
                   name="laptop_cpu_threads"
                   placeholder="64"
-                  value={formData.CPUThreads}
+                  required
+                  value={formData.laptop_cpu_threads}
                   onChange={(e) => {
-                    setFormData({ ...formData, CPUThreads: e.target.value });
+                    setFormData({
+                      ...formData,
+                      laptop_cpu_threads: e.target.value,
+                    });
                   }}
                 />
                 <label className="CPUThreads error">{"მხოლოდ ციფრები"}</label>
@@ -109,9 +141,10 @@ const FormLaptopDetails = (props) => {
                 type="number"
                 className="RAM"
                 name="laptop_ram"
-                value={formData.RAM}
+                required
+                value={formData.laptop_ram}
                 onChange={(e) => {
-                  setFormData({ ...formData, RAM: e.target.value });
+                  setFormData({ ...formData, laptop_ram: e.target.value });
                 }}
               />
               <label className="error">მხოლოდ ციფრები</label>
@@ -120,10 +153,35 @@ const FormLaptopDetails = (props) => {
               <label className="name">მეხსიერების ტიპი</label>
               <div className="flexContainer">
                 <label className="labelSSD">
-                  <input type="radio" className="ssd" name="hardDisk" /> SSD
+                  <input
+                    required
+                    type="radio"
+                    value="SSD"
+                    className="ssd"
+                    name="laptop_hard_drive_type"
+                    onChange={(e) => {
+                      setFormData({
+                        ...formData,
+                        laptop_hard_drive_type: e.target.value,
+                      });
+                    }}
+                  />{" "}
+                  SSD
                 </label>
                 <label className="labelHDD">
-                  <input type="radio" className="hdd" name="hardDisk" /> HDD
+                  <input
+                    type="radio"
+                    value="HDD"
+                    className="hdd"
+                    name="laptop_hard_drive_type"
+                    onChange={(e) => {
+                      setFormData({
+                        ...formData,
+                        laptop_hard_drive_type: e.target.value,
+                      });
+                    }}
+                  />{" "}
+                  HDD
                 </label>
               </div>
             </div>
@@ -141,9 +199,10 @@ const FormLaptopDetails = (props) => {
               type="number"
               className="price"
               name="laptop_price"
-              value={formData.price}
+              required
+              value={formData.laptop_price}
               onChange={(e) => {
-                setFormData({ ...formData, price: e.target.value });
+                setFormData({ ...formData, laptop_price: e.target.value });
               }}
             />
             <label className="error">მხოლოდ ციფრები</label>
@@ -158,12 +217,13 @@ const FormLaptopDetails = (props) => {
                   <input
                     type="radio"
                     className="new"
-                    name="condition"
+                    name="laptop_state"
                     value="new"
+                    required
                     onClick={(e) => {
                       setFormData({
                         ...formData,
-                        condition: e.target.value,
+                        laptop_state: e.target.value,
                       });
                     }}
                   />{" "}
@@ -173,12 +233,13 @@ const FormLaptopDetails = (props) => {
                   <input
                     type="radio"
                     className="old"
-                    name="condition"
+                    name="laptop_state"
+                    required
                     value="old"
                     onClick={(e) => {
                       setFormData({
                         ...formData,
-                        condition: e.target.value,
+                        laptop_state: e.target.value,
                       });
                     }}
                   />{" "}
