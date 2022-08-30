@@ -4,17 +4,6 @@ import ErrorImg from "../../../assets/photos/Error.svg";
 const FormLaptopDetails = (props) => {
   const { formData, setFormData, step } = props;
 
-  // useEffect(() => {
-  //   setFormData({
-  //     ...formData,
-  //     condition: document.querySelectorAll("input[name='condition']:checked"),
-  //   });
-  // }, []);
-
-  // useEffect(() => {
-  //   console.log(formData);
-  // }, [formData]);
-
   return (
     <div
       className="formLaptopDetails"
