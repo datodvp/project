@@ -118,6 +118,7 @@
   font-size: 18px;
   font-weight: 500;
   cursor: pointer;
+  padding: 18px 45px;
 }
 
 .addLaptop .body .prevButton:hover {

@@ -9,18 +9,38 @@ import { useNavigate } from "react-router-dom";
 const AddLaptop = () => {
   const [step, setStep] = useState(0);
   const stepNames = ["თანამშრომლის ინფო", "ლეპტოპის მახასიათებლები"];
+  const [formData, setFormData] = useState({
+    name: "",
+    surname: "",
+    email: "",
+    number: "",
+    laptopName: "",
+    CPUCores: "",
+    CPUThreads: "",
+    RAM: "",
+    price: "",
+    condition: "",
+  });
 
   const navigate = useNavigate();
 
   const PageDisplay = () => {
     switch (step) {
       case 0:
-        return <FormUserDetails />;
+        return (
+          <FormUserDetails formData={formData} setFormData={setFormData} />
+        );
       case 1:
-        return <FormLaptopDetails />;
+        return (
+          <FormLaptopDetails formData={formData} setFormData={setFormData} />
+        );
       default:
         break;
     }
+  };
+
+  const formSubmit = () => {
+    console.log(formData);
   };
 
   return (
@@ -71,12 +91,7 @@ const AddLaptop = () => {
               შემდეგი
             </button>
           ) : (
-            <button
-              className="nextButton"
-              onClick={() => {
-                setStep((prevStep) => prevStep + 1);
-              }}
-            >
+            <button className="nextButton" onClick={formSubmit}>
               შენახვა
             </button>
           )}

@@ -1,6 +1,7 @@
 import ErrorImg from "../../../assets/photos/Error.svg";
 
-const FormLaptopDetails = () => {
+const FormLaptopDetails = (props) => {
+  const { formData, setFormData } = props;
   return (
     <div className="formLaptopDetails">
       <div className="container">
@@ -15,7 +16,14 @@ const FormLaptopDetails = () => {
         <div className="field laptopName">
           <label className="labelLaptopName">
             <div className="laptopNameContainer">
-              სახელი <input className="input laptopName" />
+              სახელი{" "}
+              <input
+                className="input laptopName"
+                value={formData.laptopName}
+                onChange={(e) => {
+                  setFormData({ ...formData, laptopName: e.target.value });
+                }}
+              />
               <label className="laptopName error">
                 {"ლათინური ასოები, ციფრები, !@#$%^&*()_+="}
               </label>
@@ -46,14 +54,28 @@ const FormLaptopDetails = () => {
             <label className="labelCPUCores choose">
               <div className="CPUCoresContainer">
                 CPU-ს ბირთვი{" "}
-                <input className="inputCPUCores" placeholder="14" />
+                <input
+                  className="inputCPUCores"
+                  placeholder="14"
+                  value={formData.CPUCores}
+                  onChange={(e) => {
+                    setFormData({ ...formData, CPUCores: e.target.value });
+                  }}
+                />
                 <label className="CPUCores error">{"მხოლოდ ციფრები"}</label>
               </div>
             </label>
             <label className="labelCPUThreads choose">
               <div className="CPUThreadsContainer">
                 CPU-ს ნაკადი{" "}
-                <input className="inputCPUThreads" placeholder="64" />
+                <input
+                  className="inputCPUThreads"
+                  placeholder="64"
+                  value={formData.CPUThreads}
+                  onChange={(e) => {
+                    setFormData({ ...formData, CPUThreads: e.target.value });
+                  }}
+                />
                 <label className="CPUThreads error">{"მხოლოდ ციფრები"}</label>
               </div>
             </label>
@@ -63,7 +85,14 @@ const FormLaptopDetails = () => {
           <div className="memoryInputsContainer">
             <label className="labelRAM">
               {"ლეპტოპის RAM (GB)"}
-              <input type="number" className="RAM" />
+              <input
+                type="number"
+                className="RAM"
+                value={formData.RAM}
+                onChange={(e) => {
+                  setFormData({ ...formData, RAM: e.target.value });
+                }}
+              />
               <label className="error">მხოლოდ ციფრები</label>
             </label>
             <div className="hardDiskInput">
@@ -87,20 +116,38 @@ const FormLaptopDetails = () => {
           </label>
           <label className="labelPrice">
             {"ლეპტოპის ფასი"}
-            <input type="number" className="price" />
+            <input
+              type="number"
+              className="price"
+              value={formData.price}
+              onChange={(e) => {
+                setFormData({ ...formData, price: e.target.value });
+              }}
+            />
             <label className="error">მხოლოდ ციფრები</label>
           </label>
         </div>
         <div className="conditionInputsWrapper">
           <div className="conditionInputsContainer">
             <div className="conditionInput">
-              <label className="name">მეხსიერების ტიპი</label>
+              <label className="name">მდგომარეობა</label>
               <div className="flexContainer">
                 <label className="labelNew">
-                  <input type="radio" className="new" name="condition" /> ახალი
+                  <input
+                    type="radio"
+                    className="new"
+                    name="condition"
+                    value="new"
+                  />{" "}
+                  ახალი
                 </label>
                 <label className="labelOld">
-                  <input type="radio" className="old" name="condition" />{" "}
+                  <input
+                    type="radio"
+                    className="old"
+                    name="condition"
+                    value="old"
+                  />{" "}
                   მეორადი
                 </label>
               </div>
