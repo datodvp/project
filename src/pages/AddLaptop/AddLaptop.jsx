@@ -26,13 +26,14 @@ const AddLaptop = () => {
 
   const checkUserFormVaildity = () => {
     let validated = true;
-    const requiredInputs = document
+    const requiredFields = document
       .getElementById("userForm")
       .querySelectorAll("[required]");
+    console.log(requiredFields);
 
-    for (let input of requiredInputs) {
-      input.reportValidity();
-      if (!input.checkValidity()) {
+    for (let field of requiredFields) {
+      field.reportValidity();
+      if (!field.checkValidity()) {
         validated = false;
         break;
       }

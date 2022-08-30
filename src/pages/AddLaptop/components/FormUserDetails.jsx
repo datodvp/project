@@ -46,17 +46,17 @@ const FormUserDetails = (props) => {
         </label>
       </div>
       <div className="field team">
-        <select defaultValue={1} className="select team">
-          <option disabled value="1">
+        <select defaultValue={""} className="select team" required>
+          <option disabled value="">
             თიმი
           </option>
-          <option value="2">დეველოპმენტი</option>
-          <option value="3">HR</option>
+          <option value="1">დეველოპმენტი</option>
+          <option value="2">HR</option>
         </select>
       </div>
       <div className="field position">
-        <select defaultValue={1} className="select position">
-          <option disabled value="1">
+        <select defaultValue={""} className="select position" required>
+          <option disabled value="">
             პოზიცია
           </option>
           <option value="2">ჯუნიორი</option>
