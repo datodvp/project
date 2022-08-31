@@ -50,6 +50,52 @@ const AddLaptop = () => {
         if (field.nextSibling) field.nextSibling.style.color = "black";
       }
     }
+    return true;
+  };
+
+  const checkLaptopFormValidity = () => {
+    let validated = true;
+    const requiredFields = document
+      .getElementById("laptopForm")
+      .querySelectorAll("[required]:not([type='radio'])");
+    console.log(requiredFields);
+    for (let field of requiredFields) {
+      if (!field.checkValidity()) {
+        field.style.border = "1px solid red";
+        field.parentElement.style.color = "red";
+        if (field.nextSibling) field.nextSibling.style.color = "red";
+        // check if its upload input
+        if (field.classList.contains("uploadInput")) {
+          // button text color
+          field.parentElement.style.color = "white";
+          // container text color
+          field.parentElement.previousSibling.style.color = "red";
+          // container background color
+          field.parentElement.previousSibling.parentElement.style.backgroundColor =
+            "#FFF1F1";
+          field.parentElement.previousSibling.parentElement.style.border =
+            "2px dashed red";
+        }
+
+        validated = false;
+      } else {
+        field.style.border = "1px solid #8ac0e2";
+        field.parentElement.style.color = "black";
+        if (field.nextSibling) field.nextSibling.style.color = "black";
+
+        if (field.classList.contains("uploadInput")) {
+          // button text color
+          field.parentElement.style.color = "white";
+          // container text color
+          field.parentElement.previousSibling.style.opacity = "0";
+          // container background color
+          field.parentElement.previousSibling.parentElement.style.backgroundColor =
+            "#F7F7F7";
+          field.parentElement.previousSibling.parentElement.style.border =
+            "2px dashed #4386A9";
+        }
+      }
+    }
     return validated;
   };
 
@@ -60,10 +106,36 @@ const AddLaptop = () => {
       field.style.border = "1px solid red";
       field.parentElement.style.color = "red";
       if (field.nextSibling) field.nextSibling.style.color = "red";
+
+      // check if its upload input
+      if (field.classList.contains("uploadInput")) {
+        // button text color
+        field.parentElement.style.color = "white";
+        // container text color
+        field.parentElement.previousSibling.style.color = "red";
+        // container background color
+        field.parentElement.previousSibling.parentElement.style.backgroundColor =
+          "#FFF1F1";
+        field.parentElement.previousSibling.parentElement.style.border =
+          "2px dashed red";
+      }
     } else {
       field.style.border = "1px solid #8ac0e2";
       field.parentElement.style.color = "black";
       if (field.nextSibling) field.nextSibling.style.color = "black";
+
+      // check if its upload input
+      if (field.classList.contains("uploadInput")) {
+        // button text color
+        field.parentElement.style.color = "white";
+        // container text color
+        field.parentElement.previousSibling.style.opacity = "0";
+        // container background color
+        field.parentElement.previousSibling.parentElement.style.backgroundColor =
+          "#F7F7F7";
+        field.parentElement.previousSibling.parentElement.style.border =
+          "2px dashed #4386A9";
+      }
     }
     // checkUserFormVaildity();
   };
@@ -132,6 +204,7 @@ const AddLaptop = () => {
           step={step}
           formData={formData}
           setFormData={setFormData}
+          checkValidityOfField={checkValidityOfField}
         />
         {/* Buttons display for forms */}
         <div className="buttonsContainer">
@@ -166,7 +239,9 @@ const AddLaptop = () => {
               {/* This part of small string for some reason changes behaviour of submit button (this is actually a question
                 for stack overflow but i need to atriculate it better yet)  */}
               {""}
-              <button className="nextButton">შენახვა</button>
+              <button className="nextButton" onClick={checkLaptopFormValidity}>
+                შენახვა
+              </button>
             </>
           )}
           {/* If its last step of the form dont show Next button instead show Submit */}

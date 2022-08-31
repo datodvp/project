@@ -1,37 +1,66 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import ErrorImg from "../../../assets/photos/Error.svg";
 
 const FormLaptopDetails = (props) => {
-  const { formData, setFormData, step } = props;
+  const { formData, setFormData, step, checkValidityOfField } = props;
+  const [previewImage, setPreviewImage] = useState("");
+
+  const handlePreviewImage = (e) => {
+    const imageContainer = document.getElementsByClassName("uploadPhoto")[0];
+    const FINISHED_UPLOAD = 2;
+    const reader = new FileReader();
+    reader.onload = () => {
+      if (reader.readyState === FINISHED_UPLOAD) {
+        setPreviewImage(reader.result);
+      }
+    };
+    reader.readAsDataURL(e.target.files[0]);
+  };
 
   return (
     <div
+      id="laptopForm"
       className="formLaptopDetails"
       style={step === 1 ? { display: "flex" } : { display: "none" }}
     >
       <div className="container">
-        <div className="uploadPhoto">
+        <label
+          className="uploadPhoto"
+          htmlFor="imageInput"
+          style={{
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            backgroundColor: "#F7F7F7",
+            backgroundImage: `url(${previewImage})`,
+            backgroundSize: "cover",
+          }}
+        >
           <img src={ErrorImg} alt="error" className="error img" />
           <label className="text">ჩააგდე ან ატვირთე ლეპტოპის ფოტო</label>
-          <label className="uploadLabel">
+          <div className="uploadLabel">
             ატვირთე
             <input
+              id="imageInput"
               required
               type="file"
               className="uploadInput"
-              value={formData.laptop_image}
+              name="laptop_image"
+              accept=".png, jpeg, .svg"
               onChange={(e) => {
-                setFormData({ ...formData, laptop_image: e.target.value });
+                checkValidityOfField(e);
+                handlePreviewImage(e);
+                setFormData({ ...formData, laptop_image: e.target.files[0] });
               }}
             />
-          </label>
-        </div>
+          </div>
+        </label>
         <div className="field laptopName">
           <label className="labelLaptopName">
             <div className="laptopNameContainer">
               სახელი{" "}
               <input
                 name="laptop_name"
+                onBlur={checkValidityOfField}
                 required
                 className="input laptopName"
                 value={formData.laptop_name}
@@ -47,6 +76,7 @@ const FormLaptopDetails = (props) => {
           <div className="field laptopBrand">
             <div className="laptopBrandcontainer">
               <select
+                onBlur={checkValidityOfField}
                 name="laptop_brand_id"
                 required
                 value={formData.laptop_brand_id}
@@ -68,6 +98,7 @@ const FormLaptopDetails = (props) => {
         <div className="CPUField">
           <div className="inputsContainer">
             <select
+              onBlur={checkValidityOfField}
               name="laptop_cpu"
               required
               value={formData.laptop_cpu}
@@ -86,6 +117,7 @@ const FormLaptopDetails = (props) => {
               <div className="CPUCoresContainer">
                 CPU-ს ბირთვი{" "}
                 <input
+                  onBlur={checkValidityOfField}
                   className="inputCPUCores"
                   name="laptop_cpu_cores"
                   placeholder="14"
@@ -105,6 +137,7 @@ const FormLaptopDetails = (props) => {
               <div className="CPUThreadsContainer">
                 CPU-ს ნაკადი{" "}
                 <input
+                  onBlur={checkValidityOfField}
                   className="inputCPUThreads"
                   name="laptop_cpu_threads"
                   placeholder="64"
@@ -127,6 +160,7 @@ const FormLaptopDetails = (props) => {
             <label className="labelRAM">
               {"ლეპტოპის RAM (GB)"}
               <input
+                onBlur={checkValidityOfField}
                 type="number"
                 className="RAM"
                 name="laptop_ram"
@@ -143,7 +177,6 @@ const FormLaptopDetails = (props) => {
               <div className="flexContainer">
                 <label className="labelSSD">
                   <input
-                    required
                     type="radio"
                     value="SSD"
                     className="ssd"
@@ -185,6 +218,7 @@ const FormLaptopDetails = (props) => {
           <label className="labelPrice">
             {"ლეპტოპის ფასი"}
             <input
+              onBlur={checkValidityOfField}
               type="number"
               className="price"
               name="laptop_price"
