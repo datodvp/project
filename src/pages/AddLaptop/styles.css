@@ -751,3 +751,11 @@ input[type="file"] {
 .input:valid {
   border: 1px solid #8ac0e2;
 }
+
+.errorImg {
+  display: none;
+}
+
+/* .radioContainer {
+  color: red;
+} */

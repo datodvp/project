@@ -2,7 +2,14 @@ import { useEffect, useState } from "react";
 import ErrorImg from "../../../assets/photos/Error.svg";
 
 const FormLaptopDetails = (props) => {
-  const { formData, setFormData, step, checkValidityOfField } = props;
+  const {
+    formData,
+    setFormData,
+    step,
+    checkValidityOfField,
+    checkRadioInputsValidity,
+    checkRadioInputField,
+  } = props;
   const [previewImage, setPreviewImage] = useState("");
 
   const handlePreviewImage = (e) => {
@@ -173,15 +180,26 @@ const FormLaptopDetails = (props) => {
               <label className="error">მხოლოდ ციფრები</label>
             </label>
             <div className="hardDiskInput">
-              <label className="name">მეხსიერების ტიპი</label>
+              <div className="flexContainer radioContainer">
+                <label style={{ marginRight: 15 }} className="name radioError">
+                  მეხსიერების ტიპი
+                </label>
+                <img
+                  className="errorImg"
+                  src={ErrorImg}
+                  style={{ width: 22, height: 22 }}
+                />
+              </div>
               <div className="flexContainer">
                 <label className="labelSSD">
                   <input
                     type="radio"
+                    required
                     value="SSD"
                     className="ssd"
                     name="laptop_hard_drive_type"
                     onChange={(e) => {
+                      checkRadioInputField(e);
                       setFormData({
                         ...formData,
                         laptop_hard_drive_type: e.target.value,
@@ -197,6 +215,7 @@ const FormLaptopDetails = (props) => {
                     className="hdd"
                     name="laptop_hard_drive_type"
                     onChange={(e) => {
+                      checkRadioInputField(e);
                       setFormData({
                         ...formData,
                         laptop_hard_drive_type: e.target.value,
@@ -234,7 +253,16 @@ const FormLaptopDetails = (props) => {
         <div className="conditionInputsWrapper">
           <div className="conditionInputsContainer">
             <div className="conditionInput">
-              <label className="name">მდგომარეობა</label>
+              <div className="flexContainer radioContainer">
+                <label style={{ marginRight: 15 }} className="name radioError">
+                  მდგომარეობა
+                </label>
+                <img
+                  className="errorImg"
+                  src={ErrorImg}
+                  style={{ width: 22, height: 22 }}
+                />
+              </div>
               <div className="flexContainer">
                 <label className="labelNew">
                   <input
@@ -244,6 +272,7 @@ const FormLaptopDetails = (props) => {
                     value="new"
                     required
                     onClick={(e) => {
+                      checkRadioInputField(e);
                       setFormData({
                         ...formData,
                         laptop_state: e.target.value,
@@ -260,6 +289,7 @@ const FormLaptopDetails = (props) => {
                     required
                     value="old"
                     onClick={(e) => {
+                      checkRadioInputField(e);
                       setFormData({
                         ...formData,
                         laptop_state: e.target.value,

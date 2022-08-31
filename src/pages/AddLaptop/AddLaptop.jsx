@@ -3,7 +3,7 @@ import Logo2 from "../../assets/photos/Logo2.svg";
 import FormUserDetails from "./components/FormUserDetails";
 import FormLaptopDetails from "./components/FormLaptopDetails";
 import "./styles.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddLaptop = () => {
@@ -50,7 +50,7 @@ const AddLaptop = () => {
         if (field.nextSibling) field.nextSibling.style.color = "black";
       }
     }
-    return true;
+    return validated;
   };
 
   const checkLaptopFormValidity = () => {
@@ -58,7 +58,6 @@ const AddLaptop = () => {
     const requiredFields = document
       .getElementById("laptopForm")
       .querySelectorAll("[required]:not([type='radio'])");
-    console.log(requiredFields);
     for (let field of requiredFields) {
       if (!field.checkValidity()) {
         field.style.border = "1px solid red";
@@ -83,12 +82,50 @@ const AddLaptop = () => {
     return validated;
   };
 
+  const checkRadioInputField = (e) => {
+    console.log(e.target.checkValidity());
+    console.log(e.target.parentElement.parentElement.previousSibling);
+    let textContainer = e.target.parentElement.parentElement.previousSibling;
+
+    textContainer.style.color = "black";
+    textContainer.querySelector("img").style.display = "none";
+  };
+
+  const checkRadioInputsValidity = (e) => {
+    const requiredFields = document
+      .getElementById("laptopForm")
+      .getElementsByClassName("radioContainer");
+
+    // console.log(requiredFields);
+    for (let container of requiredFields) {
+      let inputFieldInvalid = container.nextSibling.querySelector(
+        'input[type="radio"]:invalid'
+      );
+      if (inputFieldInvalid) {
+        container.style.color = "red";
+        container.querySelector("img").style.display = "block";
+      }
+
+      let inputFieldValid = container.nextSibling.querySelector(
+        'input[type="radio"]:valid'
+      );
+      if (inputFieldValid) {
+        container.style.color = "black";
+        container.querySelector("img").style.display = "none";
+      }
+    }
+    console.log(requiredFields);
+  };
+
   const changeUploadInput = (field) => {
     if (!field.checkValidity()) {
       // button text color
       field.parentElement.style.color = "white";
       // container text color
       field.parentElement.previousSibling.style.color = "red";
+      // container image display
+      field.parentElement.previousSibling.previousSibling.style.display =
+        "block";
       // container background color
       field.parentElement.previousSibling.parentElement.style.backgroundColor =
         "#FFF1F1";
@@ -99,6 +136,9 @@ const AddLaptop = () => {
       field.parentElement.style.color = "white";
       // container text color
       field.parentElement.previousSibling.style.opacity = "0";
+      // container image display
+      field.parentElement.previousSibling.previousSibling.style.display =
+        "none";
       // container background color
       field.parentElement.previousSibling.parentElement.style.backgroundColor =
         "#F7F7F7";
@@ -108,7 +148,6 @@ const AddLaptop = () => {
   };
 
   const checkValidityOfField = (e) => {
-    console.log(e);
     const field = e.target;
     if (!field.checkValidity()) {
       field.style.border = "1px solid red";
@@ -197,6 +236,8 @@ const AddLaptop = () => {
           formData={formData}
           setFormData={setFormData}
           checkValidityOfField={checkValidityOfField}
+          // checkRadioInputsValidity={checkRadioInputsValidity}
+          checkRadioInputField={checkRadioInputField}
         />
         {/* Buttons display for forms */}
         <div className="buttonsContainer">
@@ -231,7 +272,13 @@ const AddLaptop = () => {
               {/* This part of small string for some reason changes behaviour of submit button (this is actually a question
                 for stack overflow but i need to atriculate it better yet)  */}
               {""}
-              <button className="nextButton" onClick={checkLaptopFormValidity}>
+              <button
+                className="nextButton"
+                onClick={() => {
+                  checkLaptopFormValidity();
+                  checkRadioInputsValidity();
+                }}
+              >
                 შენახვა
               </button>
             </>
