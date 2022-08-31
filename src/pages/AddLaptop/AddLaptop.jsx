@@ -66,15 +66,7 @@ const AddLaptop = () => {
         if (field.nextSibling) field.nextSibling.style.color = "red";
         // check if its upload input
         if (field.classList.contains("uploadInput")) {
-          // button text color
-          field.parentElement.style.color = "white";
-          // container text color
-          field.parentElement.previousSibling.style.color = "red";
-          // container background color
-          field.parentElement.previousSibling.parentElement.style.backgroundColor =
-            "#FFF1F1";
-          field.parentElement.previousSibling.parentElement.style.border =
-            "2px dashed red";
+          changeUploadInput(field);
         }
 
         validated = false;
@@ -84,19 +76,35 @@ const AddLaptop = () => {
         if (field.nextSibling) field.nextSibling.style.color = "black";
 
         if (field.classList.contains("uploadInput")) {
-          // button text color
-          field.parentElement.style.color = "white";
-          // container text color
-          field.parentElement.previousSibling.style.opacity = "0";
-          // container background color
-          field.parentElement.previousSibling.parentElement.style.backgroundColor =
-            "#F7F7F7";
-          field.parentElement.previousSibling.parentElement.style.border =
-            "2px dashed #4386A9";
+          changeUploadInput(field);
         }
       }
     }
     return validated;
+  };
+
+  const changeUploadInput = (field) => {
+    if (!field.checkValidity()) {
+      // button text color
+      field.parentElement.style.color = "white";
+      // container text color
+      field.parentElement.previousSibling.style.color = "red";
+      // container background color
+      field.parentElement.previousSibling.parentElement.style.backgroundColor =
+        "#FFF1F1";
+      field.parentElement.previousSibling.parentElement.style.border =
+        "2px dashed red";
+    } else {
+      // button text color
+      field.parentElement.style.color = "white";
+      // container text color
+      field.parentElement.previousSibling.style.opacity = "0";
+      // container background color
+      field.parentElement.previousSibling.parentElement.style.backgroundColor =
+        "#F7F7F7";
+      field.parentElement.previousSibling.parentElement.style.border =
+        "2px dashed #4386A9";
+    }
   };
 
   const checkValidityOfField = (e) => {
@@ -109,15 +117,7 @@ const AddLaptop = () => {
 
       // check if its upload input
       if (field.classList.contains("uploadInput")) {
-        // button text color
-        field.parentElement.style.color = "white";
-        // container text color
-        field.parentElement.previousSibling.style.color = "red";
-        // container background color
-        field.parentElement.previousSibling.parentElement.style.backgroundColor =
-          "#FFF1F1";
-        field.parentElement.previousSibling.parentElement.style.border =
-          "2px dashed red";
+        changeUploadInput(field);
       }
     } else {
       field.style.border = "1px solid #8ac0e2";
@@ -126,15 +126,7 @@ const AddLaptop = () => {
 
       // check if its upload input
       if (field.classList.contains("uploadInput")) {
-        // button text color
-        field.parentElement.style.color = "white";
-        // container text color
-        field.parentElement.previousSibling.style.opacity = "0";
-        // container background color
-        field.parentElement.previousSibling.parentElement.style.backgroundColor =
-          "#F7F7F7";
-        field.parentElement.previousSibling.parentElement.style.border =
-          "2px dashed #4386A9";
+        changeUploadInput(field);
       }
     }
     // checkUserFormVaildity();
