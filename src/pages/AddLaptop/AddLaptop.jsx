@@ -7,6 +7,14 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AddLaptop = () => {
+  const TEAMS_API = "https://pcfy.redberryinternship.ge/api/teams";
+  const BRANDS_API = "https://pcfy.redberryinternship.ge/api/brands";
+  const CPUS_API = "https://pcfy.redberryinternship.ge/api/cpus";
+  const POSITIONS_API = "https://pcfy.redberryinternship.ge/api/positions";
+  const [brandList, setBrandList] = useState([]);
+  const [CPUList, setCPUList] = useState([]);
+  const [positionList, setPositionList] = useState([]);
+  const [teamList, setTeamList] = useState([]);
   const [step, setStep] = useState(0);
   const stepNames = ["თანამშრომლის ინფო", "ლეპტოპის მახასიათებლები"];
   const [formData, setFormData] = useState({
@@ -28,6 +36,49 @@ const AddLaptop = () => {
     laptop_price: "",
     token: "6cd88074ef568dd8ca75490f67b351c7",
   });
+
+  const getData = async (url) => {
+    const data = await fetch(url);
+    return data;
+  };
+
+  useEffect(() => {
+    // set TEAMS STATE
+    let response = getData(TEAMS_API);
+    response
+      .then((res) => res.json())
+      .then((resData) => {
+        const { data } = resData;
+        setTeamList(data);
+      });
+
+    // set BRANDS STATE
+    response = getData(BRANDS_API);
+    response
+      .then((res) => res.json())
+      .then((resData) => {
+        const { data } = resData;
+        setBrandList(data);
+      });
+
+    // set CPUS STATE
+    response = getData(CPUS_API);
+    response
+      .then((res) => res.json())
+      .then((resData) => {
+        const { data } = resData;
+        setCPUList(data);
+      });
+
+    // set POSITIONS STATE
+    response = getData(POSITIONS_API);
+    response
+      .then((res) => res.json())
+      .then((resData) => {
+        const { data } = resData;
+        setPositionList(data);
+      });
+  }, []);
 
   const navigate = useNavigate();
 
@@ -83,8 +134,6 @@ const AddLaptop = () => {
   };
 
   const checkRadioInputField = (e) => {
-    console.log(e.target.checkValidity());
-    console.log(e.target.parentElement.parentElement.previousSibling);
     let textContainer = e.target.parentElement.parentElement.previousSibling;
 
     textContainer.style.color = "black";
@@ -96,7 +145,6 @@ const AddLaptop = () => {
       .getElementById("laptopForm")
       .getElementsByClassName("radioContainer");
 
-    // console.log(requiredFields);
     for (let container of requiredFields) {
       let inputFieldInvalid = container.nextSibling.querySelector(
         'input[type="radio"]:invalid'
@@ -114,7 +162,6 @@ const AddLaptop = () => {
         container.querySelector("img").style.display = "none";
       }
     }
-    console.log(requiredFields);
   };
 
   const changeUploadInput = (field) => {
@@ -133,7 +180,6 @@ const AddLaptop = () => {
 
     fileSize = bytesConvertToSize();
 
-    console.log(fileName);
     if (!field.checkValidity()) {
       // button text color
       field.parentElement.style.color = "white";
@@ -250,6 +296,8 @@ const AddLaptop = () => {
           formData={formData}
           setFormData={setFormData}
           checkValidityOfField={checkValidityOfField}
+          teamList={teamList}
+          positionList={positionList}
         />
         <FormLaptopDetails
           step={step}

@@ -1,10 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 
 const FormUserDetails = (props) => {
-  const { formData, setFormData, step, checkValidityOfField } = props;
+  const {
+    formData,
+    setFormData,
+    step,
+    checkValidityOfField,
+    positionList,
+    teamList,
+  } = props;
 
-  const giveTelPattern = () => {
-    // gives phone number a pattern
+  const [filteredPositionList, setFilteredPositionList] = useState([]);
+
+  const initPositionsSelector = (e) => {
+    const chosenTeamId = e.target.value;
+    setFilteredPositionList([]);
+    const positionInp = document.querySelectorAll(".select.position")[0];
+    positionInp.disabled = false;
+
+    for (const positionData of positionList) {
+      const { id, name, team_id } = positionData;
+      if (team_id.toString() === chosenTeamId.toString()) {
+        setFilteredPositionList((oldList) => [...oldList, positionData]);
+      }
+    }
   };
 
   return (
@@ -24,8 +43,9 @@ const FormUserDetails = (props) => {
               pattern="^(?!.* )([ა-ჰ]).{1,}"
               value={formData.name}
               placeholder="ბადრი"
-              onBlur={checkValidityOfField}
+              // onBlur={checkValidityOfField}
               onChange={(e) => {
+                checkValidityOfField(e);
                 setFormData({ ...formData, name: e.target.value });
               }}
             />
@@ -44,8 +64,9 @@ const FormUserDetails = (props) => {
               pattern="^(?!.* )([ა-ჰ]).{1,}"
               placeholder="შუბლაძე"
               value={formData.surname}
-              onBlur={checkValidityOfField}
+              // onBlur={checkValidityOfField}
               onChange={(e) => {
+                checkValidityOfField(e);
                 setFormData({ ...formData, surname: e.target.value });
               }}
             />
@@ -59,25 +80,37 @@ const FormUserDetails = (props) => {
         <select
           value={formData.team_id}
           onChange={(e) => {
+            if (e.target.value) {
+              checkValidityOfField(e);
+              initPositionsSelector(e);
+            }
             setFormData({ ...formData, team_id: e.target.value });
           }}
           className="select team"
           name="team_id"
-          onBlur={checkValidityOfField}
+          // onBlur={checkValidityOfField}
           required
         >
           <option disabled value="">
             თიმი
           </option>
-          <option value="1">დეველოპმენტი</option>
-          <option value="2">HR</option>
+          {teamList.map((team) => {
+            const { id, name } = team;
+            return (
+              <option key={id} value={id}>
+                {name}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div className="field position">
         <select
-          onBlur={checkValidityOfField}
+          disabled
+          // onBlur={checkValidityOfField}
           value={formData.position_id}
           onChange={(e) => {
+            checkValidityOfField(e);
             setFormData({ ...formData, position_id: e.target.value });
           }}
           name="position_id"
@@ -87,8 +120,14 @@ const FormUserDetails = (props) => {
           <option disabled value="">
             პოზიცია
           </option>
-          <option value="1">ჯუნიორი</option>
-          <option value="2">მიდლი</option>
+          {filteredPositionList.map((position) => {
+            const { id, name } = position;
+            return (
+              <option key={id} value={id}>
+                {name}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div className="field email">
@@ -96,7 +135,7 @@ const FormUserDetails = (props) => {
           <div className="container">
             მეილი{" "}
             <input
-              onBlur={checkValidityOfField}
+              // onBlur={checkValidityOfField}
               className="input email"
               name="email"
               required
@@ -104,6 +143,7 @@ const FormUserDetails = (props) => {
               placeholder="badr777@redberry.ge"
               value={formData.email}
               onChange={(e) => {
+                checkValidityOfField(e);
                 setFormData({ ...formData, email: e.target.value });
               }}
             />
@@ -118,7 +158,7 @@ const FormUserDetails = (props) => {
           <div className="container">
             ტელეფონის ნომერი{" "}
             <input
-              onBlur={checkValidityOfField}
+              // onBlur={checkValidityOfField}
               className="input number"
               name="phone_number"
               type="tel"
@@ -127,6 +167,7 @@ const FormUserDetails = (props) => {
               placeholder="+995 577 77 77 77"
               value={formData.phone_number}
               onChange={(e) => {
+                checkValidityOfField(e);
                 setFormData({ ...formData, phone_number: e.target.value });
               }}
             />
