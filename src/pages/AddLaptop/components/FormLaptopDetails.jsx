@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import ErrorImg from "../../../assets/photos/Error.svg";
+import ImgAccepted from "../../../assets/photos/ImageAccepted.svg";
 
 const FormLaptopDetails = (props) => {
   const {
@@ -31,36 +32,54 @@ const FormLaptopDetails = (props) => {
       style={step === 1 ? { display: "flex" } : { display: "none" }}
     >
       <div className="container">
-        <label
-          className="uploadPhoto"
-          htmlFor="imageInput"
-          style={{
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundColor: "#F7F7F7",
-            backgroundImage: `url(${previewImage})`,
-            backgroundSize: "cover",
-          }}
-        >
-          <img src={ErrorImg} alt="error" className="error img" />
-          <label className="text">ჩააგდე ან ატვირთე ლეპტოპის ფოტო</label>
-          <div className="uploadLabel">
-            ატვირთე
-            <input
-              id="imageInput"
-              required
-              type="file"
-              className="uploadInput"
-              name="laptop_image"
-              accept=".png, jpeg, .svg"
-              onChange={(e) => {
-                checkValidityOfField(e);
-                handlePreviewImage(e);
-                setFormData({ ...formData, laptop_image: e.target.files[0] });
-              }}
-            />
+        <div className="uploadPhotoContainer">
+          <label
+            className="uploadPhoto"
+            htmlFor="imageInput"
+            style={{
+              backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
+              backgroundColor: "#F7F7F7",
+              backgroundImage: `url(${previewImage})`,
+              backgroundSize: "cover",
+            }}
+          >
+            <img src={ErrorImg} alt="error" className="error img" />
+            <label className="text">ჩააგდე ან ატვირთე ლეპტოპის ფოტო</label>
+            <div className="uploadLabel">
+              ატვირთე
+              <input
+                id="imageInput"
+                required
+                type="file"
+                className="uploadInput"
+                name="laptop_image"
+                accept=".png, jpeg, .svg"
+                onChange={(e) => {
+                  // added this if statement because, when selecting procces is cancelled with a cancel button it is removing previous photo from input
+                  if (e.target.value) {
+                    checkValidityOfField(e);
+                    handlePreviewImage(e);
+                    setFormData({
+                      ...formData,
+                      laptop_image: e.target.files[0],
+                    });
+                  }
+                }}
+              />
+            </div>
+          </label>
+          <div className="photoInfoContainer">
+            <div className="photoInfo">
+              <img className="acceptedImage" src={ImgAccepted} alt="accepted" />
+              <label className="photoInfoLabel">info</label>
+              <label className="photoSizeLabel">info</label>
+            </div>
+            <label htmlFor="imageInput" className="reupload button">
+              თავიდან ატვირთე
+            </label>
           </div>
-        </label>
+        </div>
         <div className="field laptopName">
           <label className="labelLaptopName">
             <div className="laptopNameContainer">

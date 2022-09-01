@@ -118,6 +118,22 @@ const AddLaptop = () => {
   };
 
   const changeUploadInput = (field) => {
+    const fileName = field.files[0].name;
+    let fileSize = field.files[0].size;
+
+    function bytesConvertToSize() {
+      let fSExt = new Array("Bytes", "kb", "mb", "gb"),
+        i = 0;
+      while (fileSize > 900) {
+        fileSize /= 1024;
+        i++;
+      }
+      return Math.round(fileSize * 100) / 100 + " " + fSExt[i];
+    }
+
+    fileSize = bytesConvertToSize();
+
+    console.log(fileName);
     if (!field.checkValidity()) {
       // button text color
       field.parentElement.style.color = "white";
@@ -132,8 +148,8 @@ const AddLaptop = () => {
       field.parentElement.previousSibling.parentElement.style.border =
         "2px dashed red";
     } else {
-      // button text color
-      field.parentElement.style.color = "white";
+      // hide button
+      field.parentElement.style.opacity = "0";
       // container text color
       field.parentElement.previousSibling.style.opacity = "0";
       // container image display
@@ -142,8 +158,12 @@ const AddLaptop = () => {
       // container background color
       field.parentElement.previousSibling.parentElement.style.backgroundColor =
         "#F7F7F7";
-      field.parentElement.previousSibling.parentElement.style.border =
-        "2px dashed #4386A9";
+
+      document.getElementsByClassName("photoInfoContainer")[0].style.display =
+        "flex";
+      field.parentElement.previousSibling.parentElement.style.border = "none";
+      document.getElementsByClassName("photoInfoLabel")[0].innerHTML = fileName;
+      document.getElementsByClassName("photoSizeLabel")[0].innerHTML = fileSize;
     }
   };
 
