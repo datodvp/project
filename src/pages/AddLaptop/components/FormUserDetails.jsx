@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 const FormUserDetails = (props) => {
   const {
@@ -12,19 +12,37 @@ const FormUserDetails = (props) => {
 
   const [filteredPositionList, setFilteredPositionList] = useState([]);
 
-  const initPositionsSelector = (e) => {
-    const chosenTeamId = e.target.value;
-    setFilteredPositionList([]);
+  const initPositionsSelector = () => {
+    const chosenTeamId = document.querySelector(".select.team").value;
     const positionInp = document.querySelectorAll(".select.position")[0];
-    positionInp.disabled = false;
+    let newFilteredPositionList = [];
+    // check is team selector is chosen by user
 
-    for (const positionData of positionList) {
-      const { id, name, team_id } = positionData;
-      if (team_id.toString() === chosenTeamId.toString()) {
-        setFilteredPositionList((oldList) => [...oldList, positionData]);
+    if (chosenTeamId) {
+      positionInp.disabled = false;
+      // set data for position selector
+      for (const positionData of positionList) {
+        const { id, name, team_id } = positionData;
+        if (team_id.toString() === chosenTeamId.toString()) {
+          newFilteredPositionList.push(positionData);
+        }
+      }
+      // check if new list of positions is not same as previous filtered list of positions and if they are different then set new data
+      // just to not get infinite loop
+      // compare them with first values as they must be different
+      console.log(newFilteredPositionList[0], filteredPositionList[0]);
+      if (newFilteredPositionList[0] !== filteredPositionList[0]) {
+        setFilteredPositionList(newFilteredPositionList);
+      } else {
+        console.log(newFilteredPositionList[0], filteredPositionList[0]);
+        return;
       }
     }
   };
+
+  useEffect(() => {
+    initPositionsSelector();
+  }, [teamList]);
 
   return (
     <div
@@ -80,10 +98,8 @@ const FormUserDetails = (props) => {
         <select
           value={formData.team_id}
           onChange={(e) => {
-            if (e.target.value) {
-              checkValidityOfField(e);
-              initPositionsSelector(e);
-            }
+            checkValidityOfField(e);
+            initPositionsSelector(e);
             setFormData({ ...formData, team_id: e.target.value });
           }}
           className="select team"
@@ -106,8 +122,8 @@ const FormUserDetails = (props) => {
       </div>
       <div className="field position">
         <select
-          disabled
           // onBlur={checkValidityOfField}
+          disabled
           value={formData.position_id}
           onChange={(e) => {
             checkValidityOfField(e);
