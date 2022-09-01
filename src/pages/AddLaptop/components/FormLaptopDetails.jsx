@@ -326,7 +326,7 @@ const FormLaptopDetails = (props) => {
                     className="old"
                     name="laptop_state"
                     required
-                    value="old"
+                    value="used"
                     onClick={(e) => {
                       checkRadioInputField(e);
                       setFormData({
