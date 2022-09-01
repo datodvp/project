@@ -58,7 +58,7 @@ const FormUserDetails = (props) => {
               className="input name"
               name="name"
               required
-              pattern="^(?!.* )([ა-ჰ]).{1,}"
+              pattern="^[ა-ჰ]{2,30}$"
               value={formData.name}
               placeholder="ბადრი"
               // onBlur={checkValidityOfField}
@@ -79,7 +79,7 @@ const FormUserDetails = (props) => {
               className="input surname"
               name="surname"
               required
-              pattern="^(?!.* )([ა-ჰ]).{1,}"
+              pattern="^[ა-ჰ]{2,15}$"
               placeholder="შუბლაძე"
               value={formData.surname}
               // onBlur={checkValidityOfField}
