@@ -62,11 +62,11 @@ const FormLaptopDetails = (props) => {
                   if (e.target.value) {
                     checkValidityOfField(e);
                     handlePreviewImage(e);
-                    setFormData({
-                      ...formData,
-                      laptop_image: e.target.files[0],
-                    });
                   }
+                  setFormData({
+                    ...formData,
+                    laptop_image: e.target.files[0],
+                  });
                 }}
               />
             </div>

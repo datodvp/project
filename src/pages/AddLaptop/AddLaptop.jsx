@@ -167,10 +167,9 @@ const AddLaptop = () => {
   };
 
   const changeUploadInput = (field) => {
-    const fileName = field.files[0].name;
-    let fileSize = field.files[0].size;
+    console.log("EGIIII", field.files);
 
-    function bytesConvertToSize() {
+    function bytesConvertToSize(fileSize) {
       let fSExt = new Array("Bytes", "kb", "mb", "gb"),
         i = 0;
       while (fileSize > 900) {
@@ -179,8 +178,6 @@ const AddLaptop = () => {
       }
       return Math.round(fileSize * 100) / 100 + " " + fSExt[i];
     }
-
-    fileSize = bytesConvertToSize();
 
     if (!field.checkValidity()) {
       // button text color
@@ -206,6 +203,11 @@ const AddLaptop = () => {
       // container background color
       field.parentElement.previousSibling.parentElement.style.backgroundColor =
         "#F7F7F7";
+
+      const fileName = field.files[0].name;
+      let fileSize = field.files[0].size;
+
+      fileSize = bytesConvertToSize(fileSize);
 
       document.getElementsByClassName("photoInfoContainer")[0].style.display =
         "flex";
