@@ -80,6 +80,10 @@ const AddLaptop = () => {
         const { data } = resData;
         setPositionList(data);
       });
+
+    // check radio inputs if they are checked  and fix them after first load
+
+    checkRadioInputs();
   }, []);
 
   const navigate = useNavigate();
@@ -133,6 +137,22 @@ const AddLaptop = () => {
       }
     }
     return validated;
+  };
+
+  const checkRadioInputs = () => {
+    const radionInps = document.querySelectorAll('input[type="radio"]');
+    // set radio checked for hard drive
+    for (const radioInp of radionInps) {
+      if (radioInp.value === formData.laptop_hard_drive_type) {
+        radioInp.checked = true;
+      }
+    }
+    // set radio checked for laptop state
+    for (const radioInp of radionInps) {
+      if (radioInp.value === formData.laptop_state) {
+        radioInp.checked = true;
+      }
+    }
   };
 
   const checkRadioInputField = (e) => {
