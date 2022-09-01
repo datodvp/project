@@ -3,6 +3,10 @@ import React from "react";
 const FormUserDetails = (props) => {
   const { formData, setFormData, step, checkValidityOfField } = props;
 
+  const giveTelPattern = () => {
+    // gives phone number a pattern
+  };
+
   return (
     <div
       id="userForm"
@@ -17,6 +21,7 @@ const FormUserDetails = (props) => {
               className="input name"
               name="name"
               required
+              pattern="^([ა-ჰ])*[^\s]\1*.{1,}$"
               value={formData.name}
               onBlur={checkValidityOfField}
               onChange={(e) => {
@@ -35,6 +40,7 @@ const FormUserDetails = (props) => {
               className="input surname"
               name="surname"
               required
+              pattern="^([ა-ჰ])*[^\s]\1*.{1,}$"
               value={formData.surname}
               onBlur={checkValidityOfField}
               onChange={(e) => {
@@ -92,6 +98,7 @@ const FormUserDetails = (props) => {
               className="input email"
               name="email"
               required
+              pattern="^[A-Za-z0-9]+@redberry.ge"
               placeholder="grish777@redberry.ge"
               value={formData.email}
               onChange={(e) => {
@@ -112,7 +119,9 @@ const FormUserDetails = (props) => {
               onBlur={checkValidityOfField}
               className="input number"
               name="phone_number"
+              type="tel"
               required
+              pattern="^(\+?995)?(79\d{7}|5\d{8})$"
               placeholder="+995 577 77 77 77"
               value={formData.phone_number}
               onChange={(e) => {

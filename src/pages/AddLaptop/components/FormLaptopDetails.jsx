@@ -64,11 +64,12 @@ const FormLaptopDetails = (props) => {
         <div className="field laptopName">
           <label className="labelLaptopName">
             <div className="laptopNameContainer">
-              სახელი{" "}
+              ლეპტოპის სახელი{" "}
               <input
                 name="laptop_name"
                 onBlur={checkValidityOfField}
                 required
+                pattern="^[!@#$%^&*()_+=a-zA-Z0-9-]+$"
                 className="input laptopName"
                 value={formData.laptop_name}
                 onChange={(e) => {
@@ -125,10 +126,11 @@ const FormLaptopDetails = (props) => {
                 CPU-ს ბირთვი{" "}
                 <input
                   onBlur={checkValidityOfField}
-                  className="inputCPUCores"
+                  className="inputCPUCores numberInput"
                   name="laptop_cpu_cores"
                   placeholder="14"
                   required
+                  type="number"
                   value={formData.laptop_cpu_cores}
                   onChange={(e) => {
                     setFormData({
@@ -145,10 +147,11 @@ const FormLaptopDetails = (props) => {
                 CPU-ს ნაკადი{" "}
                 <input
                   onBlur={checkValidityOfField}
-                  className="inputCPUThreads"
+                  className="inputCPUThreads numberInput"
                   name="laptop_cpu_threads"
                   placeholder="64"
                   required
+                  type="number"
                   value={formData.laptop_cpu_threads}
                   onChange={(e) => {
                     setFormData({
@@ -169,7 +172,7 @@ const FormLaptopDetails = (props) => {
               <input
                 onBlur={checkValidityOfField}
                 type="number"
-                className="RAM"
+                className="RAM numberInput"
                 name="laptop_ram"
                 required
                 value={formData.laptop_ram}
@@ -239,7 +242,7 @@ const FormLaptopDetails = (props) => {
             <input
               onBlur={checkValidityOfField}
               type="number"
-              className="price"
+              className="price numberInput"
               name="laptop_price"
               required
               value={formData.laptop_price}
