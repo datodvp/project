@@ -72,6 +72,7 @@ const FormLaptopDetails = (props) => {
                 pattern="^[!@#$%^&*()_+=a-zA-Z0-9-]+$"
                 className="input laptopName"
                 value={formData.laptop_name}
+                placeholder="HP"
                 onChange={(e) => {
                   setFormData({ ...formData, laptop_name: e.target.value });
                 }}
@@ -149,7 +150,7 @@ const FormLaptopDetails = (props) => {
                   onBlur={checkValidityOfField}
                   className="inputCPUThreads numberInput"
                   name="laptop_cpu_threads"
-                  placeholder="64"
+                  placeholder="365"
                   required
                   type="number"
                   value={formData.laptop_cpu_threads}
@@ -175,6 +176,7 @@ const FormLaptopDetails = (props) => {
                 className="RAM numberInput"
                 name="laptop_ram"
                 required
+                placeholder="16"
                 value={formData.laptop_ram}
                 onChange={(e) => {
                   setFormData({ ...formData, laptop_ram: e.target.value });
@@ -244,6 +246,7 @@ const FormLaptopDetails = (props) => {
               type="number"
               className="price numberInput"
               name="laptop_price"
+              placeholder="1200"
               required
               value={formData.laptop_price}
               onChange={(e) => {

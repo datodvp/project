@@ -21,8 +21,9 @@ const FormUserDetails = (props) => {
               className="input name"
               name="name"
               required
-              pattern="^([ა-ჰ])*[^\s]\1*.{1,}$"
+              pattern="^(?!.* )([ა-ჰ]).{1,}"
               value={formData.name}
+              placeholder="ბადრი"
               onBlur={checkValidityOfField}
               onChange={(e) => {
                 setFormData({ ...formData, name: e.target.value });
@@ -40,7 +41,8 @@ const FormUserDetails = (props) => {
               className="input surname"
               name="surname"
               required
-              pattern="^([ა-ჰ])*[^\s]\1*.{1,}$"
+              pattern="^(?!.* )([ა-ჰ]).{1,}"
+              placeholder="შუბლაძე"
               value={formData.surname}
               onBlur={checkValidityOfField}
               onChange={(e) => {
@@ -99,7 +101,7 @@ const FormUserDetails = (props) => {
               name="email"
               required
               pattern="^[A-Za-z0-9]+@redberry.ge"
-              placeholder="grish777@redberry.ge"
+              placeholder="badr777@redberry.ge"
               value={formData.email}
               onChange={(e) => {
                 setFormData({ ...formData, email: e.target.value });
