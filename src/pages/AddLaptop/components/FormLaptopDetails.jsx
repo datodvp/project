@@ -10,6 +10,8 @@ const FormLaptopDetails = (props) => {
     checkValidityOfField,
     checkRadioInputsValidity,
     checkRadioInputField,
+    brandList,
+    CPUList,
   } = props;
   const [previewImage, setPreviewImage] = useState("");
 
@@ -114,10 +116,16 @@ const FormLaptopDetails = (props) => {
                 className="select laptopBrand"
               >
                 <option disabled value="">
-                  ბრენდი
+                  ლეპტოპის ბრენდი
                 </option>
-                <option value="1">AMD</option>
-                <option value="2">Intel</option>
+                {brandList.map((brand) => {
+                  const { id, name } = brand;
+                  return (
+                    <option key={id} value={id}>
+                      {name}
+                    </option>
+                  );
+                })}
               </select>
             </div>
           </div>
@@ -138,8 +146,14 @@ const FormLaptopDetails = (props) => {
               <option disabled value="">
                 CPU
               </option>
-              <option value="Intel Core i3">Intel Core i3</option>
-              <option value="2">AMD</option>
+              {CPUList.map((CPU) => {
+                const { id, name } = CPU;
+                return (
+                  <option key={id} value={name}>
+                    {name}
+                  </option>
+                );
+              })}
             </select>
             <label className="labelCPUCores choose">
               <div className="CPUCoresContainer">

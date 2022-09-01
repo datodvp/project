@@ -306,6 +306,8 @@ const AddLaptop = () => {
           checkValidityOfField={checkValidityOfField}
           // checkRadioInputsValidity={checkRadioInputsValidity}
           checkRadioInputField={checkRadioInputField}
+          brandList={brandList}
+          CPUList={CPUList}
         />
         {/* Buttons display for forms */}
         <div className="buttonsContainer">
