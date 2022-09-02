@@ -372,6 +372,7 @@ const AddLaptop = () => {
                 onClick={() => {
                   if (checkUserFormVaildity()) {
                     setStep((prevStep) => prevStep + 1);
+                    window.scrollTo(0, 0);
                   }
                 }}
               >
