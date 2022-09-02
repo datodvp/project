@@ -713,6 +713,13 @@ input[type="file"] {
   color: #2e2e2e;
 }
 
+.priceContainer {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  position: relative;
+}
+
 .price {
   width: 407px;
   padding: 19px 16px 20px 16px;
@@ -722,7 +729,11 @@ input[type="file"] {
   border-radius: 8px;
   margin-top: 8px;
   margin-bottom: 8px;
-  margin-right: 63px;
+}
+
+.priceLogo {
+  position: absolute;
+  right: 18px;
 }
 
 /* END OF LAPTOP INFO STYLING */

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ErrorImg from "../../../assets/photos/Error.svg";
 import ImgAccepted from "../../../assets/photos/ImageAccepted.svg";
+import GelImg from "../../../assets/photos/Gel.svg";
 
 const FormLaptopDetails = (props) => {
   const {
@@ -271,22 +272,26 @@ const FormLaptopDetails = (props) => {
             {"შეძენის რიცხვი (არჩევითი)"}
             <input type="date" className="date" />
           </label>
-          <label className="labelPrice">
-            {"ლეპტოპის ფასი"}
-            <input
-              type="number"
-              className="price numberInput"
-              name="laptop_price"
-              placeholder="1200"
-              required
-              value={formData.laptop_price}
-              onChange={(e) => {
-                checkValidityOfField(e);
-                setFormData({ ...formData, laptop_price: e.target.value });
-              }}
-            />
-            <label className="error">მხოლოდ ციფრები</label>
-          </label>
+          <div className="priceContainer">
+            <label className="labelPrice">
+              {"ლეპტოპის ფასი"}
+              <input
+                type="number"
+                className="price numberInput"
+                name="laptop_price"
+                placeholder="1200"
+                required
+                value={formData.laptop_price}
+                onChange={(e) => {
+                  checkValidityOfField(e);
+                  setFormData({ ...formData, laptop_price: e.target.value });
+                }}
+              />
+
+              <label className="error">მხოლოდ ციფრები</label>
+            </label>
+            <img className="priceLogo" src={GelImg} alt="gel" />
+          </div>
         </div>
         <div className="conditionInputsWrapper">
           <div className="conditionInputsContainer">
