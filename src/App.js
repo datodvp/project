@@ -13,7 +13,7 @@ function App() {
           <Route path="/" element={<Landing />}></Route>
           <Route path="/addLaptop" element={<AddLaptop token={token} />} />
           <Route path="/Laptops" element={<Laptops token={token} />} />
-          <Route path="/Laptop/:id" element={<Laptop />} />
+          <Route path="/Laptop/:id" element={<Laptop token={token} />} />
         </Routes>
       </BrowserRouter>
     </div>

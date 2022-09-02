@@ -1,0 +1,28 @@
+.laptop {
+  width: 100vw;
+  height: fit-content;
+}
+
+.laptop .header {
+  height: 197px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+}
+
+.laptop .header .previousPage {
+  position: absolute;
+  width: 53px;
+  height: 53px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  left: 6.4%;
+  margin-bottom: 25px;
+}
+
+.laptop .header .title {
+  width: fit-content;
+  margin: 0 auto;
+}
