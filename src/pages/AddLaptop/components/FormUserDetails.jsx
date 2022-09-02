@@ -56,7 +56,6 @@ const FormUserDetails = (props) => {
               pattern="^[ა-ჰ]{2,30}$"
               value={formData.name}
               placeholder="ბადრი"
-              // onBlur={checkValidityOfField}
               onChange={(e) => {
                 checkValidityOfField(e);
                 setFormData({ ...formData, name: e.target.value });
@@ -77,7 +76,6 @@ const FormUserDetails = (props) => {
               pattern="^[ა-ჰ]{2,15}$"
               placeholder="შუბლაძე"
               value={formData.surname}
-              // onBlur={checkValidityOfField}
               onChange={(e) => {
                 checkValidityOfField(e);
                 setFormData({ ...formData, surname: e.target.value });
@@ -99,7 +97,7 @@ const FormUserDetails = (props) => {
           }}
           className="select team"
           name="team_id"
-          // onBlur={checkValidityOfField}
+          onBlur={checkValidityOfField}
           required
         >
           <option disabled value="">
@@ -117,7 +115,7 @@ const FormUserDetails = (props) => {
       </div>
       <div className="field position">
         <select
-          // onBlur={checkValidityOfField}
+          onBlur={checkValidityOfField}
           disabled
           value={formData.position_id}
           onChange={(e) => {
@@ -146,7 +144,6 @@ const FormUserDetails = (props) => {
           <div className="container">
             მეილი{" "}
             <input
-              // onBlur={checkValidityOfField}
               className="input email"
               name="email"
               required
@@ -169,7 +166,6 @@ const FormUserDetails = (props) => {
           <div className="container">
             ტელეფონის ნომერი{" "}
             <input
-              // onBlur={checkValidityOfField}
               className="input number"
               name="phone_number"
               type="tel"

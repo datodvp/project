@@ -88,13 +88,13 @@ const FormLaptopDetails = (props) => {
               ლეპტოპის სახელი{" "}
               <input
                 name="laptop_name"
-                onBlur={checkValidityOfField}
                 required
                 pattern="^[!@#$%^&*()_+=a-zA-Z0-9-]+$"
                 className="input laptopName"
                 value={formData.laptop_name}
                 placeholder="HP"
                 onChange={(e) => {
+                  checkValidityOfField(e);
                   setFormData({ ...formData, laptop_name: e.target.value });
                 }}
               />
@@ -159,7 +159,6 @@ const FormLaptopDetails = (props) => {
               <div className="CPUCoresContainer">
                 CPU-ს ბირთვი{" "}
                 <input
-                  onBlur={checkValidityOfField}
                   className="inputCPUCores numberInput"
                   name="laptop_cpu_cores"
                   placeholder="14"
@@ -167,6 +166,7 @@ const FormLaptopDetails = (props) => {
                   type="number"
                   value={formData.laptop_cpu_cores}
                   onChange={(e) => {
+                    checkValidityOfField(e);
                     setFormData({
                       ...formData,
                       laptop_cpu_cores: e.target.value,
@@ -180,7 +180,6 @@ const FormLaptopDetails = (props) => {
               <div className="CPUThreadsContainer">
                 CPU-ს ნაკადი{" "}
                 <input
-                  onBlur={checkValidityOfField}
                   className="inputCPUThreads numberInput"
                   name="laptop_cpu_threads"
                   placeholder="365"
@@ -188,6 +187,7 @@ const FormLaptopDetails = (props) => {
                   type="number"
                   value={formData.laptop_cpu_threads}
                   onChange={(e) => {
+                    checkValidityOfField(e);
                     setFormData({
                       ...formData,
                       laptop_cpu_threads: e.target.value,
@@ -204,7 +204,6 @@ const FormLaptopDetails = (props) => {
             <label className="labelRAM">
               {"ლეპტოპის RAM (GB)"}
               <input
-                onBlur={checkValidityOfField}
                 type="number"
                 className="RAM numberInput"
                 name="laptop_ram"
@@ -212,6 +211,7 @@ const FormLaptopDetails = (props) => {
                 placeholder="16"
                 value={formData.laptop_ram}
                 onChange={(e) => {
+                  checkValidityOfField(e);
                   setFormData({ ...formData, laptop_ram: e.target.value });
                 }}
               />
@@ -275,7 +275,6 @@ const FormLaptopDetails = (props) => {
           <label className="labelPrice">
             {"ლეპტოპის ფასი"}
             <input
-              onBlur={checkValidityOfField}
               type="number"
               className="price numberInput"
               name="laptop_price"
@@ -283,6 +282,7 @@ const FormLaptopDetails = (props) => {
               required
               value={formData.laptop_price}
               onChange={(e) => {
+                checkValidityOfField(e);
                 setFormData({ ...formData, laptop_price: e.target.value });
               }}
             />
