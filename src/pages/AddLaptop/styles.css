@@ -372,6 +372,10 @@
   position: relative;
 }
 
+.uploadInput {
+  cursor: pointer;
+}
+
 .uploadPhoto .error.img {
   display: none;
 }
@@ -508,9 +512,10 @@ input[type="file"] {
   text-shadow: (0px 4px 34px rgba(0, 0, 0, 0.25));
 }
 
-.field.laptopBrand .laptopBrandContainer {
+.field.laptopBrand .laptopBrandcontainer {
   display: flex;
   flex-direction: column;
+  margin-bottom: 45px;
 }
 
 .dividerLine {
@@ -762,34 +767,6 @@ input[type="file"] {
 
 /* END OF LAPTOP CONDITION STYLING */
 
-/* START OF global error classes */
-
-/* .input:invalid ~ .error {
-  color: red;
-}
-
-.input:invalid > label {
-  color: red;
-}
-
-.input:invalid + label {
-  color: red;
-}
-
-.input:invalid {
-  border-color: red;
-} */
-
-/* .field.team select:invalid {
-  border: 1px solid red;
-}
-
-.field.position select:invalid {
-  border: 1px solid red;
-} */
-
-/* END OF global error classes  */
-
 .input:valid {
   border: 1px solid #8ac0e2;
 }
@@ -798,6 +775,78 @@ input[type="file"] {
   display: none;
 }
 
-/* .radioContainer {
-  color: red;
-} */
+/* START OF SUCCESS PAGE */
+
+.successContainer {
+  width: 100vw;
+  height: 100vh;
+  background-color: #4a4a4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.successContainer .popup {
+  width: 44%;
+  height: 49.7%;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.successContainer .popup .successImg {
+  max-width: 72%;
+  max-height: 51%;
+  object-fit: cover;
+}
+
+.successContainer .popup .successMessage {
+  font-size: 25px;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.successContainer .popup .listButton {
+  color: white;
+  border: none;
+  background-color: #62a1eb;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 18px 45px;
+  border-radius: 8px;
+}
+
+.successContainer .popup .listButton:hover {
+  color: white;
+  border: none;
+  background-color: #4785cc;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 18px 45px;
+}
+
+.successContainer .popup .landingButton {
+  color: #62a1eb;
+  border: none;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 18px 45px;
+}
+
+.successContainer .popup .landingButton:hover {
+  color: #4785cc;
+  border: none;
+  background-color: white;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 18px 45px;
+}
+
+/* END OF SUCCESS PAGE */

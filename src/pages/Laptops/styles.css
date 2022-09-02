@@ -1,0 +1,90 @@
+.laptops {
+  width: 100vw;
+  height: fit-content;
+}
+
+.laptops .header {
+  height: 197px;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  position: relative;
+}
+
+.laptops .header .previousPage {
+  position: absolute;
+  width: 53px;
+  height: 53px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  left: 6.4%;
+  margin-bottom: 25px;
+}
+
+.laptops .header .title {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.laptops .body .laptopsContainer {
+  display: grid;
+  grid-template-columns: auto auto;
+  column-gap: 52px;
+  row-gap: 55px;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* START OF LAPTOP COMPONENT */
+.laptopComponent {
+  width: 563px;
+  height: 205px;
+  background-color: #eafaff;
+  border-radius: 20px;
+  border: 1px solid #aed1ea;
+  display: flex;
+}
+
+.laptopComponent .laptopImg {
+  width: 266px;
+  height: 178px;
+  margin: 14px;
+  border-radius: 10px;
+}
+
+.laptopComponent .laptopInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  margin-bottom: 18px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.laptopName {
+  margin-bottom: 40px;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.moreInfo {
+  font-family: "Helvetica Neue";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 21px;
+  /* identical to box height, or 131% */
+
+  display: flex;
+  align-items: center;
+  text-decoration-line: underline;
+
+  /* ლურჯი/700 */
+
+  color: #4386a9;
+}
+/* END OF LAPTOP COMPONENT */ ;

@@ -6,8 +6,9 @@ import "./styles.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import Success from "./components/Success";
 
-const AddLaptop = () => {
+const AddLaptop = (props) => {
   const TEAMS_API = "https://pcfy.redberryinternship.ge/api/teams";
   const BRANDS_API = "https://pcfy.redberryinternship.ge/api/brands";
   const CPUS_API = "https://pcfy.redberryinternship.ge/api/cpus";
@@ -18,6 +19,7 @@ const AddLaptop = () => {
   const [teamList, setTeamList] = useState([]);
   const [step, setStep] = useState(0);
   const stepNames = ["თანამშრომლის ინფო", "ლეპტოპის მახასიათებლები"];
+  const [registrationFinished, setRegistrationFinished] = useState(false);
   const [formData, setFormData] = useLocalStorage("formData", {
     name: "",
     surname: "",
@@ -35,7 +37,7 @@ const AddLaptop = () => {
     laptop_hard_drive_type: "",
     laptop_state: "",
     laptop_price: "",
-    token: "6cd88074ef568dd8ca75490f67b351c7",
+    token: props.token,
   });
 
   const getData = async (url) => {
@@ -280,6 +282,7 @@ const AddLaptop = () => {
       .then((response) => response.json())
       .then((data) => {
         // restart inputs after succesfull upload
+        setRegistrationFinished(true);
         setFormData({
           name: "",
           surname: "",
@@ -304,7 +307,9 @@ const AddLaptop = () => {
         throw error;
       });
   };
-
+  if (registrationFinished) {
+    return <Success />;
+  }
   return (
     <div className="addLaptop">
       <div className="header">
