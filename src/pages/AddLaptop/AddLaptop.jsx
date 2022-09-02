@@ -17,7 +17,7 @@ const AddLaptop = (props) => {
   const [CPUList, setCPUList] = useState([]);
   const [positionList, setPositionList] = useState([]);
   const [teamList, setTeamList] = useState([]);
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useLocalStorage("step", 0);
   const stepNames = ["თანამშრომლის ინფო", "ლეპტოპის მახასიათებლები"];
   const [registrationFinished, setRegistrationFinished] = useState(false);
   const [formData, setFormData] = useLocalStorage("formData", {
