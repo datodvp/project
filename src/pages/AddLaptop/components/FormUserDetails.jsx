@@ -6,44 +6,37 @@ const FormUserDetails = (props) => {
     setFormData,
     step,
     checkValidityOfField,
-    positionList,
     teamList,
+    positionList,
   } = props;
 
-  const [filteredPositionList, setFilteredPositionList] = useState([]);
-
-  const initPositionsSelector = () => {
-    const chosenTeamId = document.querySelector(".select.team").value;
-    const positionInp = document.querySelectorAll(".select.position")[0];
-    let newFilteredPositionList = [];
-    // check is team selector is chosen by user
-
-    if (chosenTeamId) {
-      positionInp.disabled = false;
-      // set data for position selector
-      for (const positionData of positionList) {
-        const { id, name, team_id } = positionData;
-        if (team_id.toString() === chosenTeamId.toString()) {
-          newFilteredPositionList.push(positionData);
-        }
-      }
-      // check if new list of positions is not same as previous filtered list of positions and if they are different then set new data
-      // just to not get infinite loop
-      // compare them with first values as they must be different
-      console.log(newFilteredPositionList[0], filteredPositionList[0]);
-      if (newFilteredPositionList[0] !== filteredPositionList[0]) {
-        setFilteredPositionList(newFilteredPositionList);
-      } else {
-        console.log(newFilteredPositionList[0], filteredPositionList[0]);
-        return;
-      }
-    }
-  };
+  const [formattedPositionList, setFormattedPositionList] = useState([]);
 
   useEffect(() => {
-    initPositionsSelector();
-  }, [teamList]);
+    setOptionsForPositionSelector();
+  }, [teamList, positionList]);
 
+  const formatPositionList = (chosenTeamId) => {
+    let formattedPositionList = positionList.filter(
+      (position) => position.team_id.toString() === chosenTeamId.toString()
+    );
+    return formattedPositionList;
+  };
+
+  const setOptionsForPositionSelector = () => {
+    // if teamList is empty just return back from function else set options for position selector
+    if (teamList.length === 0 || positionList.length === 0) return;
+
+    const chosenTeamId = document.querySelector(".select.team").value;
+    const positionSelector = document.querySelector(".select.position");
+    // check if team dropdown is selected and then turn on position dropdown
+    if (chosenTeamId) {
+      positionSelector.disabled = false;
+    }
+
+    let formattedPositionList = formatPositionList(chosenTeamId);
+    setFormattedPositionList(formattedPositionList);
+  };
   return (
     <div
       id="userForm"
@@ -98,8 +91,8 @@ const FormUserDetails = (props) => {
         <select
           value={formData.team_id}
           onChange={(e) => {
+            setOptionsForPositionSelector();
             checkValidityOfField(e);
-            initPositionsSelector(e);
             setFormData({ ...formData, team_id: e.target.value });
           }}
           className="select team"
@@ -136,7 +129,7 @@ const FormUserDetails = (props) => {
           <option disabled value="">
             პოზიცია
           </option>
-          {filteredPositionList.map((position) => {
+          {formattedPositionList.map((position) => {
             const { id, name } = position;
             return (
               <option key={id} value={id}>
