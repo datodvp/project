@@ -19,7 +19,11 @@ const Laptops = (props) => {
       .then((res) => res.json())
       .then((data) => {
         let laptopsList = data.data;
-        setLaptopsList(laptopsList);
+
+        // if laptop list is emtly dont re-render, as it will loop infinitely
+        if (laptopsList.length) {
+          setLaptopsList(laptopsList);
+        }
       });
   };
 
@@ -40,14 +44,15 @@ const Laptops = (props) => {
       </div>
       <div className="body">
         <div className="laptopsContainer">
-          {laptopsList.map((laptopInfo) => {
-            return (
-              <LaptopComponent
-                key={laptopInfo.laptop.id}
-                laptopInfo={laptopInfo}
-              />
-            );
-          })}
+          {laptopsList.length &&
+            laptopsList.map((laptopInfo) => {
+              return (
+                <LaptopComponent
+                  key={laptopInfo.laptop.id}
+                  laptopInfo={laptopInfo}
+                />
+              );
+            })}
         </div>
       </div>
     </div>

@@ -5,7 +5,7 @@ import Laptop from "./pages/Laptop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
-  const token = "6cd88074ef568dd8ca75490f67b351c7";
+  const token = "73a5ed96f333f1719f624ca2b5df1856";
   return (
     <div className="App">
       <BrowserRouter>
