@@ -310,7 +310,11 @@ const AddLaptop = () => {
       <div className="header">
         <button
           onClick={() => {
-            navigate(-1);
+            if (step > 0) {
+              setStep((prev) => prev - 1);
+            } else {
+              navigate(-1);
+            }
           }}
           className="previousPage"
         >
