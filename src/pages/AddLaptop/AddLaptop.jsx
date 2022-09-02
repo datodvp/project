@@ -325,6 +325,14 @@ const AddLaptop = () => {
             <h4
               className={index === step ? "stepName active" : "stepName"}
               key={index}
+              onClick={() => {
+                // checks if click is on second form step and if it is checks first fields before letting user go to next page
+                if (index > 0 && checkUserFormVaildity()) {
+                  setStep(index);
+                } else {
+                  setStep(0);
+                }
+              }}
             >
               {stepName}
             </h4>

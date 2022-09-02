@@ -48,6 +48,7 @@
 .addLaptop .header .stepName {
   margin: 0 66px;
   position: relative;
+  cursor: pointer;
 }
 
 .addLaptop .header .stepName.active:after {
@@ -59,6 +60,7 @@
   bottom: -15px;
   background-color: black;
   border-radius: 9px;
+  cursor: default;
 }
 
 .addLaptop .header .previousPage {
