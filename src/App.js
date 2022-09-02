@@ -1,6 +1,7 @@
 import Landing from "./pages/Landing";
 import AddLaptop from "./pages/AddLaptop";
 import Laptops from "./pages/Laptops";
+import Laptop from "./pages/Laptop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
           <Route path="/" element={<Landing />}></Route>
           <Route path="/addLaptop" element={<AddLaptop token={token} />} />
           <Route path="/Laptops" element={<Laptops token={token} />} />
+          <Route path="/Laptop/:id" element={<Laptop />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LeftArrow from "../../assets/photos/LeftArrow.svg";
@@ -13,7 +12,7 @@ const Laptops = (props) => {
   const getLaptopsList = () => {
     // if laptops are available already dont re-render to stop looping
     if (laptopsList.length > 0) return;
-    console.log("igi");
+
     fetch(url, {
       method: "get",
     })

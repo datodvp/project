@@ -9,6 +9,13 @@ const LaptopComponent = (props) => {
     return defaultUrl + imagePath;
   };
 
+  const createLaptopPath = () => {
+    const path = "/Laptop/";
+    const laptopPath = path + `${laptop.id}`;
+
+    return laptopPath;
+  };
+
   return (
     <div className="laptopComponent">
       <img
@@ -21,7 +28,7 @@ const LaptopComponent = (props) => {
           {user.name} {user.surname}
         </p>
         <p className="laptopName">{laptop.name}</p>
-        <Link to="/" className="moreInfo">
+        <Link to={createLaptopPath()} className="moreInfo">
           მეტის ნახვა
         </Link>
       </div>
