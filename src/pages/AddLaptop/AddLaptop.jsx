@@ -37,7 +37,6 @@ const AddLaptop = () => {
     laptop_price: "",
     token: "6cd88074ef568dd8ca75490f67b351c7",
   });
-  // console.log(formData);
 
   const getData = async (url) => {
     const data = await fetch(url);
@@ -187,8 +186,6 @@ const AddLaptop = () => {
   };
 
   const changeUploadInput = (field) => {
-    console.log("EGIIII", field.files);
-
     function bytesConvertToSize(fileSize) {
       let fSExt = new Array("Bytes", "kb", "mb", "gb"),
         i = 0;
@@ -281,7 +278,6 @@ const AddLaptop = () => {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         // restart inputs after succesfull upload
         setFormData({
           name: "",
@@ -304,7 +300,7 @@ const AddLaptop = () => {
         });
       })
       .catch((error) => {
-        console.log(error);
+        throw error;
       });
   };
 

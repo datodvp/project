@@ -14,6 +14,8 @@ const FormUserDetails = (props) => {
 
   useEffect(() => {
     setOptionsForPositionSelector();
+
+    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, [teamList, positionList]);
 
   const formatPositionList = (chosenTeamId) => {
