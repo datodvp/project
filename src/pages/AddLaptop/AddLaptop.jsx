@@ -83,6 +83,7 @@ const AddLaptop = () => {
     // check radio inputs if they are checked  and fix them after first load
 
     checkRadioInputs();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const navigate = useNavigate();
@@ -187,7 +188,7 @@ const AddLaptop = () => {
 
   const changeUploadInput = (field) => {
     function bytesConvertToSize(fileSize) {
-      let fSExt = new Array("Bytes", "kb", "mb", "gb"),
+      let fSExt = ["Bytes", "kb", "mb", "gb"],
         i = 0;
       while (fileSize > 900) {
         fileSize /= 1024;

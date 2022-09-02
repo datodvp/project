@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ErrorImg from "../../../assets/photos/Error.svg";
 import ImgAccepted from "../../../assets/photos/ImageAccepted.svg";
 
@@ -8,7 +8,6 @@ const FormLaptopDetails = (props) => {
     setFormData,
     step,
     checkValidityOfField,
-    checkRadioInputsValidity,
     checkRadioInputField,
     brandList,
     CPUList,
@@ -16,7 +15,6 @@ const FormLaptopDetails = (props) => {
   const [previewImage, setPreviewImage] = useState("");
 
   const handlePreviewImage = (e) => {
-    const imageContainer = document.getElementsByClassName("uploadPhoto")[0];
     const FINISHED_UPLOAD = 2;
     const reader = new FileReader();
     reader.onload = () => {
@@ -225,6 +223,7 @@ const FormLaptopDetails = (props) => {
                 <img
                   className="errorImg"
                   src={ErrorImg}
+                  alt="error"
                   style={{ width: 22, height: 22 }}
                 />
               </div>
@@ -298,6 +297,7 @@ const FormLaptopDetails = (props) => {
                 </label>
                 <img
                   className="errorImg"
+                  alt="error"
                   src={ErrorImg}
                   style={{ width: 22, height: 22 }}
                 />
