@@ -121,7 +121,7 @@ const Laptop = (props) => {
           <div className="firstRow">
             <div className="infoDivider">
               <img className="laptopImg" src={getImagePath()} alt="alt" />
-              <div className="userInfo">
+              <div className="userInfo cont">
                 <InfoLabel info="სახელი:">
                   {userInfo.name} {userInfo.surname}
                 </InfoLabel>
@@ -136,8 +136,8 @@ const Laptop = (props) => {
           </div>
           <hr />
           <div className="secondRow">
-            <div className="infoDivider">
-              <div className="laptopInfo">
+            <div className="infoDivider bottom">
+              <div className="laptopInfo cont">
                 <InfoLabel info="ლეპტოპის სახელი:">{laptopInfo.name}</InfoLabel>
                 <InfoLabel info="ლეპტოპის ბრენდი:">{laptopBrand}</InfoLabel>
                 <InfoLabel info="RAM:">{laptopInfo.ram}</InfoLabel>
@@ -145,7 +145,7 @@ const Laptop = (props) => {
                   {laptopInfo.hard_drive_type}
                 </InfoLabel>
               </div>
-              <div className="CPUInfo">
+              <div className="CPUInfo cont">
                 <InfoLabel info="CPU:">{laptopInfo.cpu.name}</InfoLabel>
                 <InfoLabel info="CPU-ს ბირთვი:">
                   {laptopInfo.cpu.cores}
@@ -158,8 +158,8 @@ const Laptop = (props) => {
           </div>
           <hr />
           <div className="thirdRow">
-            <div className="infoDivider">
-              <div className="laptopState">
+            <div className="infoDivider bottom">
+              <div className="laptopState cont">
                 <InfoLabel info="ლეპტოპის მდგომარეობა:">
                   {laptopInfo.state === "new" ? "ახალი" : "მეორადი"}
                 </InfoLabel>
@@ -167,7 +167,7 @@ const Laptop = (props) => {
                   {laptopInfo.price} ₾
                 </InfoLabel>
               </div>
-              <div className="buyDate">
+              <div className="buyDate cont">
                 <InfoLabel info="შეძენის რიცხვი:">
                   {laptopInfo.purchase_date
                     ? laptopInfo.purchase_date

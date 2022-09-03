@@ -55,7 +55,7 @@ const FormLaptopDetails = (props) => {
                 type="file"
                 className="uploadInput"
                 name="laptop_image"
-                accept=".png, jpeg, .svg"
+                accept="image/*"
                 onChange={(e) => {
                   // added this if statement because, when selecting procces is cancelled with a cancel button it is removing previous photo from input
                   if (e.target.value) {

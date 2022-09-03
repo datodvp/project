@@ -43,12 +43,12 @@
 }
 
 .infoContainer .firstRow .laptopImg {
-  width: 577px;
+  min-width: 577px;
   height: 342px;
 }
 
 .infoContainer .firstRow .userInfo {
-  width: 416px;
+  width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -63,11 +63,9 @@
 
 .secondRow .infoDivider {
   display: flex;
-  column-gap: 228px;
 }
 
 .secondRow .laptopInfo {
-  width: 416px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -76,7 +74,6 @@
 }
 
 .secondRow .CPUInfo {
-  width: 416px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -91,11 +88,13 @@
 
 .thirdRow .infoDivider {
   display: flex;
-  column-gap: 228px;
+}
+
+.infoDivider.bottom {
+  column-gap: 107px;
 }
 
 .thirdRow .laptopState {
-  width: 416px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -104,7 +103,6 @@
 }
 
 .thirdRow .buyDate {
-  width: 416px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -117,7 +115,6 @@
 /* START OF INFO LABEL */
 .infoContainer .infoLabel {
   display: flex;
-  justify-content: space-between;
   width: 100%;
 }
 
@@ -125,12 +122,22 @@
   font-size: 22px;
   font-weight: 500;
   color: #2e2e2e;
+  width: 281px;
+  margin-right: 19px;
 }
 
 .infoLabel .value {
-  font-size: 22px;
-  font-weight: 40;
+  font-size: 20px;
+  font-weight: 400;
   color: #797979;
+}
+
+.cont {
+  width: 577px;
+}
+
+.value {
+  width: 250px;
 }
 
 /* END OF INFO LABEL */
