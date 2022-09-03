@@ -24,3 +24,7 @@ input:focus {
 select:focus {
   outline: none;
 }
+
+.previousPage:hover {
+  background-color: #a19f9f;
+}
