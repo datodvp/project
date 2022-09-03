@@ -87,4 +87,75 @@
 
   color: #4386a9;
 }
-/* END OF LAPTOP COMPONENT */ ;
+/* END OF LAPTOP COMPONENT */
+
+@media screen and (max-width: 390px) {
+  .laptops .header {
+    height: 84px;
+  }
+
+  .laptops .header .title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  .laptops .header .previousPage {
+    top: 15px;
+    left: 10px;
+    width: 0px;
+    background-color: white;
+  }
+
+  .laptops .body .laptopsContainer {
+    display: grid;
+    grid-template-columns: auto;
+    row-gap: 26px;
+    margin: 0 auto;
+  }
+
+  .laptopComponent {
+    width: 358px;
+    height: 123px;
+    background-color: #eafaff;
+    border-radius: 20px;
+    border: 1px solid #aed1ea;
+    display: flex;
+    column-gap: 10px;
+  }
+
+  .laptopComponent .laptopImg {
+    width: 164px;
+    height: 109px;
+    margin: 6px;
+    border-radius: 10px;
+  }
+
+  .name {
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .laptopName {
+    margin-bottom: 11px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  .moreInfo {
+    font-family: "Helvetica Neue";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    /* identical to box height, or 131% */
+
+    display: flex;
+    align-items: center;
+    text-decoration-line: underline;
+
+    /* ლურჯი/700 */
+
+    color: #4386a9;
+  }
+}
