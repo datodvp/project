@@ -15,6 +15,7 @@ const Laptop = (props) => {
   const [userInfo, setUserInfo] = useState();
   const [teamName, setTeamName] = useState();
   const [positionName, setPositionName] = useState();
+  const [laptopBrand, setLaptopBrand] = useState();
   const navigate = useNavigate();
   let imagePath = "";
 
@@ -37,6 +38,7 @@ const Laptop = (props) => {
 
   useEffect(() => {
     getImagePath();
+    getLaptopBrand();
   }, [laptopInfo]);
 
   const getTeamName = () => {
@@ -62,6 +64,20 @@ const Laptop = (props) => {
         for (const position of positions) {
           if (position.id === userInfo.position_id) {
             setPositionName(position.name);
+          }
+        }
+      });
+  };
+
+  const getLaptopBrand = () => {
+    if (!laptopInfo) return;
+    fetch("https://pcfy.redberryinternship.ge/api/brands")
+      .then((res) => res.json())
+      .then((data) => data.data)
+      .then((brands) => {
+        for (const brand of brands) {
+          if (brand.id === laptopInfo.brand_id) {
+            setLaptopBrand(brand.name);
           }
         }
       });
@@ -123,7 +139,7 @@ const Laptop = (props) => {
             <div className="infoDivider">
               <div className="laptopInfo">
                 <InfoLabel info="ლეპტოპის სახელი:">{laptopInfo.name}</InfoLabel>
-                <InfoLabel info="ლეპტოპის ბრენდი:"></InfoLabel>
+                <InfoLabel info="ლეპტოპის ბრენდი:">{laptopBrand}</InfoLabel>
                 <InfoLabel info="RAM:">{laptopInfo.ram}</InfoLabel>
                 <InfoLabel info="მეხსიერების ტიპი:">
                   {laptopInfo.hard_drive_type}
