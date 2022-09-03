@@ -270,7 +270,7 @@ const FormLaptopDetails = (props) => {
         <div className="laptopInfoContainer">
           <label className="labelDate">
             {"შეძენის რიცხვი (არჩევითი)"}
-            <input type="date" className="date" />
+            <input name="laptop_purchase_date" type="date" className="date" />
           </label>
           <div className="priceContainer">
             <label className="labelPrice">

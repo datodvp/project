@@ -37,6 +37,7 @@ const AddLaptop = (props) => {
     laptop_hard_drive_type: "",
     laptop_state: "",
     laptop_price: "",
+    laptop_purchase_date: "",
     token: props.token,
   });
 
