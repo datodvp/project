@@ -1,12 +1,10 @@
 .laptop {
-  width: 100vw;
   height: fit-content;
 }
 
 .laptop .header {
   height: 197px;
   display: flex;
-  /* justify-content: center; */
   align-items: center;
   position: relative;
 }
@@ -26,3 +24,113 @@
   width: fit-content;
   margin: 0 auto;
 }
+
+/* START OF INFO CONTAINER */
+
+.infoContainer {
+  width: 1178px;
+  margin: 0 auto;
+}
+
+.infoDivider {
+  display: flex;
+  column-gap: 68px;
+  height: 100%;
+}
+.infoContainer .firstRow {
+  height: 342px;
+  margin-bottom: 84px;
+}
+
+.infoContainer .firstRow .laptopImg {
+  width: 577px;
+  height: 342px;
+}
+
+.infoContainer .firstRow .userInfo {
+  width: 416px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 33px;
+}
+
+.secondRow {
+  margin-top: 54px;
+  margin-bottom: 77px;
+}
+
+.secondRow .infoDivider {
+  display: flex;
+  column-gap: 228px;
+}
+
+.secondRow .laptopInfo {
+  width: 416px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 33px;
+}
+
+.secondRow .CPUInfo {
+  width: 416px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 33px;
+}
+
+.thirdRow {
+  margin-top: 54px;
+  margin-bottom: 77px;
+}
+
+.thirdRow .infoDivider {
+  display: flex;
+  column-gap: 228px;
+}
+
+.thirdRow .laptopState {
+  width: 416px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 33px;
+}
+
+.thirdRow .buyDate {
+  width: 416px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 33px;
+}
+
+/* END OF INFO CONTAINER */
+
+/* START OF INFO LABEL */
+.infoContainer .infoLabel {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.infoLabel .key {
+  font-size: 22px;
+  font-weight: 500;
+  color: #2e2e2e;
+}
+
+.infoLabel .value {
+  font-size: 22px;
+  font-weight: 40;
+  color: #797979;
+}
+
+/* END OF INFO LABEL */
