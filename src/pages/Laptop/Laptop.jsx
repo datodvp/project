@@ -14,9 +14,28 @@ const Laptop = (props) => {
   const [laptopInfo, setLaptopInfo] = useState();
   const [userInfo, setUserInfo] = useState();
   const navigate = useNavigate();
+  let imagePath = "";
 
   console.log(laptopInfo);
-  console.log(userInfo);
+  // console.log(userInfo);
+
+  // const getTeamList = () => {
+  //   fetch("https://pcfy.redberryinternship.ge/api/teams")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //     });
+  // };
+
+  const getImagePath = () => {
+    if (!laptopInfo) return;
+    imagePath = "https://pcfy.redberryinternship.ge" + laptopInfo.image;
+    return imagePath;
+  };
+
+  useEffect(() => {
+    getImagePath();
+  }, [laptopInfo]);
 
   const getLaptopInfo = () => {
     fetch(laptopPath)
@@ -33,6 +52,7 @@ const Laptop = (props) => {
   if (!laptopInfo && !userInfo) {
     return <h1>Loading...</h1>;
   }
+
   return (
     <div className="laptop">
       <div className="header">
@@ -50,7 +70,7 @@ const Laptop = (props) => {
         <div className="infoContainer">
           <div className="firstRow">
             <div className="infoDivider">
-              <img className="laptopImg" src={imege} alt="alt" />
+              <img className="laptopImg" src={getImagePath()} alt="alt" />
               <div className="userInfo">
                 <InfoLabel info="სახელი:">
                   {userInfo.name} {userInfo.surname}
