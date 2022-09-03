@@ -13,10 +13,12 @@ const Laptop = (props) => {
   const laptopPath = `https://pcfy.redberryinternship.ge/api/laptop/${LAPTOP_ID}?token=${token}`;
   const [laptopInfo, setLaptopInfo] = useState();
   const [userInfo, setUserInfo] = useState();
+  const [teamName, setTeamName] = useState();
+  const [positionName, setPositionName] = useState();
   const navigate = useNavigate();
   let imagePath = "";
 
-  console.log(laptopInfo);
+  // console.log(laptopInfo);
   // console.log(userInfo);
 
   // const getTeamList = () => {
@@ -37,6 +39,38 @@ const Laptop = (props) => {
     getImagePath();
   }, [laptopInfo]);
 
+  const getTeamName = () => {
+    if (!userInfo) return;
+    fetch("https://pcfy.redberryinternship.ge/api/teams")
+      .then((res) => res.json())
+      .then((data) => data.data)
+      .then((teams) => {
+        for (const team of teams) {
+          if (team.id === userInfo.team_id) {
+            setTeamName(team.name);
+          }
+        }
+      });
+  };
+
+  const getPositionName = () => {
+    if (!userInfo) return;
+    fetch("https://pcfy.redberryinternship.ge/api/positions")
+      .then((res) => res.json())
+      .then((data) => data.data)
+      .then((positions) => {
+        for (const position of positions) {
+          if (position.id === userInfo.position_id) {
+            setPositionName(position.name);
+          }
+        }
+      });
+  };
+
+  useEffect(() => {
+    getTeamName();
+    getPositionName();
+  }, [userInfo]);
   const getLaptopInfo = () => {
     fetch(laptopPath)
       .then((res) => res.json())
@@ -75,8 +109,8 @@ const Laptop = (props) => {
                 <InfoLabel info="სახელი:">
                   {userInfo.name} {userInfo.surname}
                 </InfoLabel>
-                <InfoLabel info="თიმი:"></InfoLabel>
-                <InfoLabel info="პოზიცია:"></InfoLabel>
+                <InfoLabel info="თიმი:">{teamName}</InfoLabel>
+                <InfoLabel info="პოზიცია:">{positionName}</InfoLabel>
                 <InfoLabel info="მეილი:">{userInfo.email}</InfoLabel>
                 <InfoLabel info="ტელ.ნომერი:">
                   {userInfo.phone_number}
