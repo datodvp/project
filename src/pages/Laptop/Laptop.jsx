@@ -90,7 +90,9 @@ const Laptop = (props) => {
           <div className="thirdRow">
             <div className="infoDivider">
               <div className="laptopState">
-                <InfoLabel info="ლეპტოპის მდგომარეობა:"></InfoLabel>
+                <InfoLabel info="ლეპტოპის მდგომარეობა:">
+                  {laptopInfo.state === "new" ? "ახალი" : "მეორადი"}
+                </InfoLabel>
                 <InfoLabel info="ლეპტოპის ფასი:">
                   {laptopInfo.price} ₾
                 </InfoLabel>
