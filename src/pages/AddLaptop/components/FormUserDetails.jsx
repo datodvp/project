@@ -170,7 +170,7 @@ const FormUserDetails = (props) => {
               name="phone_number"
               type="tel"
               required
-              pattern="^(\+?995)?(79\d{7}|5\d{8})$"
+              pattern="^(\+?995)(79\d{7}|5\d{8})$"
               placeholder="+995 577 77 77 77"
               value={formData.phone_number}
               onChange={(e) => {
