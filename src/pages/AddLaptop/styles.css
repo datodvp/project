@@ -1100,7 +1100,8 @@ input[type="file"] {
   }
 
   .dividerLine {
-    border: 10px solid #ebebeb;
+    border: 8px solid #ebebeb;
+    width: 100%;
   }
 
   .CPUField .inputsContainer {
