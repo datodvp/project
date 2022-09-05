@@ -48,6 +48,7 @@ const FormLaptopDetails = (props) => {
           >
             <img src={ErrorImg} alt="error" className="error img" />
             <label className="text">ჩააგდე ან ატვირთე ლეპტოპის ფოტო</label>
+            <label className="mobileText">ლეპტოპის ფოტოს ატვირთვა</label>
             <img src={MobileImg} alt="mobileImg" className="mobile img" />
             <div className="uploadLabel">
               ატვირთე

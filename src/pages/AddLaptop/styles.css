@@ -360,6 +360,16 @@
   text-align: center;
   color: #4386a9;
 }
+.uploadPhoto label.mobileText {
+  width: 195px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: #4386a9;
+  display: none;
+}
 
 input[type="file"] {
   /* display: none; */
@@ -418,6 +428,7 @@ input[type="file"] {
 
 .photoInfoContainer .photoInfoLabel {
   margin-right: 18px;
+  max-width: 500px;
 }
 
 .photoInfoContainer .photoSizeLabel {
@@ -1021,18 +1032,10 @@ input[type="file"] {
   .uploadPhoto label.text {
     color: transparent;
     font-size: 0px;
+    display: none;
   }
-  .uploadPhoto label.text::after {
-    content: "ლეპტოპის ფოტოს ატვირთვა";
-    position: absolute;
-    width: 146px;
-    height: 52px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 25px;
-    color: #4386a9;
-    text-align: center;
-    left: 100px;
+  .uploadPhoto label.mobileText {
+    display: block;
   }
 
   .uploadPhoto .error.img {

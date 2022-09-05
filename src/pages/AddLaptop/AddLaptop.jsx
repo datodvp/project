@@ -204,10 +204,15 @@ const AddLaptop = (props) => {
       // button text color
       field.parentElement.style.color = "white";
       // container text color
-      field.parentElement.previousSibling.style.color = "red";
+      field.parentElement.parentElement.getElementsByClassName(
+        "text"
+      )[0].style.color = "red";
+      field.parentElement.parentElement.getElementsByClassName(
+        "mobileText"
+      )[0].style.color = "red";
       // container image display
-      field.parentElement.previousSibling.previousSibling.style.display =
-        "block";
+      // field.parentElement.previousSibling.previousSibling.style.display =
+      //   "none";
       // container background color
       field.parentElement.previousSibling.parentElement.style.backgroundColor =
         "#FFF1F1";
@@ -218,7 +223,12 @@ const AddLaptop = (props) => {
       // hide button
       field.parentElement.style.opacity = "0";
       // container text color
-      field.parentElement.previousSibling.style.opacity = "0";
+      field.parentElement.parentElement.getElementsByClassName(
+        "text"
+      )[0].style.opacity = "0";
+      field.parentElement.parentElement.getElementsByClassName(
+        "mobile img"
+      )[0].style.display = "none";
       // container image display
       field.parentElement.previousSibling.previousSibling.style.display =
         "none";
