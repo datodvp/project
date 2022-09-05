@@ -140,4 +140,91 @@
   width: 250px;
 }
 
+@media screen and (max-width: 1000px) {
+  .laptop .header {
+    height: 84px;
+    width: 390px;
+    margin: 0 auto;
+  }
+  .laptop .header .title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  .laptop .header .previousPage {
+    background-color: transparent;
+    margin-bottom: 0;
+    left: 0;
+  }
+
+  .infoDivider {
+    flex-direction: column;
+  }
+  .infoContainer {
+    width: 390px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .infoContainer .firstRow {
+    width: 358px;
+    height: fit-content;
+    margin-bottom: 23px;
+  }
+  .infoContainer .firstRow .laptopImg {
+    min-width: 358px;
+    width: 358px;
+    height: 191px;
+    object-fit: cover;
+    margin-bottom: 29px;
+  }
+  .infoContainer .secondRow {
+    width: 358px;
+    height: fit-content;
+  }
+  .infoContainer .thirdRow {
+    width: 358px;
+    height: fit-content;
+  }
+  hr {
+    border: 0.6px solid #a5a5a5;
+    width: 358px;
+  }
+  .infoContainer .firstRow .userInfo {
+    row-gap: 0px;
+  }
+  .infoLabel .key {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 24px;
+    width: 185px;
+  }
+  .infoLabel .value {
+    font-size: 14px;
+    font-weight: 500;
+    width: auto;
+  }
+  .secondRow {
+    margin-top: 23px;
+    margin-bottom: 23px;
+  }
+  .secondRow .laptopInfo {
+    row-gap: 0px;
+  }
+  .secondRow .CPUInfo {
+    row-gap: 0px;
+  }
+  .thirdRow {
+    margin-top: 23px;
+    margin-bottom: 23px;
+  }
+  .thirdRow .laptopState {
+    row-gap: 0px;
+  }
+  .thirdRow .buyDate {
+    row-gap: 0px;
+  }
+}
+
 /* END OF INFO LABEL */

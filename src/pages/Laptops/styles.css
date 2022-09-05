@@ -100,10 +100,9 @@
   }
 
   .laptops .header .previousPage {
-    top: 15px;
-    left: 10px;
-    width: 0px;
-    background-color: white;
+    margin-bottom: 0;
+    left: 0;
+    background-color: transparent;
   }
 
   .laptops .body .laptopsContainer {
@@ -111,6 +110,7 @@
     grid-template-columns: auto;
     row-gap: 26px;
     margin: 0 auto;
+    margin-bottom: 51px;
   }
 
   .laptopComponent {
