@@ -1188,4 +1188,7 @@ input[type="file"] {
   .mobile.img {
     display: block;
   }
+  .addLaptop .header .previousPage:hover {
+    background-color: transparent;
+  }
 }
