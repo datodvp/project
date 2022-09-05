@@ -1,15 +1,15 @@
 @font-face {
-  font-family: "HelveticaNeue";
+  font-family: HelveticaNeue;
   src: url("assets/fonts/HelveticaNeue.ttc");
 }
 
 * {
+  font-family: "HelveticaNeue", sans-serif;
   box-sizing: border-box;
   margin: 0;
 }
 
 body {
-  font-family: "HelveticaNeue", sans-serif;
 }
 
 a {

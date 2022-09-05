@@ -2,6 +2,7 @@ import { useState } from "react";
 import ErrorImg from "../../../assets/photos/Error.svg";
 import ImgAccepted from "../../../assets/photos/ImageAccepted.svg";
 import GelImg from "../../../assets/photos/Gel.svg";
+import MobileImg from "../../../assets/photos/MobileImg.svg";
 
 const FormLaptopDetails = (props) => {
   const {
@@ -47,6 +48,7 @@ const FormLaptopDetails = (props) => {
           >
             <img src={ErrorImg} alt="error" className="error img" />
             <label className="text">ჩააგდე ან ატვირთე ლეპტოპის ფოტო</label>
+            <img src={MobileImg} alt="mobileImg" className="mobile img" />
             <div className="uploadLabel">
               ატვირთე
               <input

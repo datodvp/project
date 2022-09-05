@@ -213,6 +213,7 @@ const AddLaptop = (props) => {
         "#FFF1F1";
       field.parentElement.previousSibling.parentElement.style.border =
         "2px dashed red";
+      document.getElementsByClassName("error img")[0].style.display = "block";
     } else {
       // hide button
       field.parentElement.style.opacity = "0";
@@ -224,6 +225,7 @@ const AddLaptop = (props) => {
       // container background color
       field.parentElement.previousSibling.parentElement.style.backgroundColor =
         "#F7F7F7";
+      document.getElementsByClassName("error img")[0].style.display = "none";
 
       const fileName = field.files[0].name;
       let fileSize = field.files[0].size;
@@ -332,7 +334,11 @@ const AddLaptop = (props) => {
         {stepNames.map((stepName, index) => {
           return (
             <h4
-              className={index === step ? "stepName active" : "stepName"}
+              className={
+                index === step
+                  ? `stepName active step${index}`
+                  : `stepName step${index}`
+              }
               key={index}
               onClick={() => {
                 // checks if click is on second form step and if it is checks first fields before letting user go to next page

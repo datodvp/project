@@ -502,6 +502,10 @@ input[type="file"] {
   margin-bottom: 40px;
 }
 
+.mobile.img {
+  display: none;
+}
+
 .CPUField .CPUBrand {
   appearance: none;
   width: 277px;
@@ -832,3 +836,356 @@ input[type="file"] {
 }
 
 /* END OF SUCCESS PAGE */
+
+@media screen and (max-width: 1000px) {
+  .addLaptop {
+    background-color: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    width: 390px;
+    margin: auto;
+  }
+
+  .addLaptop .header {
+    margin-top: 31px;
+    margin-bottom: 11px;
+  }
+
+  .addLaptop .header .previousPage {
+    background-color: #f7f7f7;
+    top: 14px;
+    left: -10px;
+  }
+
+  .stepName:not(.active) {
+    display: none;
+  }
+
+  .stepName:after {
+    content: "1231241234";
+    /* position: absolute; */
+    width: 80%;
+    height: 2px;
+    left: 10%;
+    bottom: -15px;
+    background-color: black;
+    border-radius: 9px;
+    cursor: default;
+  }
+
+  .addLaptop .body {
+    width: 100%;
+    min-width: 390px;
+    padding: 38px 0 58px 0;
+    border-radius: 12px;
+  }
+
+  .formUserDetails {
+    padding: 0;
+  }
+  .field {
+    width: 358px !important;
+  }
+
+  .field.name {
+    width: 100%;
+    flex-direction: column;
+    margin-bottom: 18px;
+  }
+
+  .field.team {
+    margin-bottom: 46px;
+  }
+
+  .field.position {
+    margin-bottom: 25px;
+  }
+
+  .field.email {
+    margin-bottom: 22px;
+  }
+
+  .field.number {
+    margin-bottom: 42px;
+  }
+
+  .field.name .container {
+    margin: 0;
+    margin-bottom: 15px;
+  }
+  .field.email .container {
+    margin: 0;
+  }
+  .field.number .container {
+    margin: 0;
+  }
+  .formUserDetails .container {
+    margin-bottom: 30px;
+  }
+  .container .input {
+    width: 358px;
+    margin: 8px 0;
+  }
+  .container .error {
+    margin: 0px;
+    margin-bottom: 8px;
+  }
+  .field .team.select {
+    width: 358px;
+  }
+  .field .position.select {
+    width: 358px;
+  }
+  .buttonsContainer {
+    width: 358px;
+  }
+
+  .field .labelName {
+    width: 358px;
+  }
+
+  .field .labelSurname {
+    width: 358px;
+  }
+
+  .field .labelNumber {
+    width: 358px;
+  }
+
+  .field .labelEmail {
+    width: 358px;
+  }
+
+  .buttonsContainer button {
+    margin: 0;
+  }
+
+  .addLaptop .body .nextButton {
+    margin-bottom: 0;
+    width: 132px;
+    padding: 12px 27px;
+  }
+
+  .footer {
+    display: none;
+  }
+  .addLaptop .header .stepName.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+  }
+
+  .addLaptop .header .step0.stepName.active:after {
+    all: initial;
+    content: "1/2";
+    font-family: HelveticaNeue, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #898989;
+  }
+  .addLaptop .header .step1.stepName.active:after {
+    all: initial;
+    content: "2/2";
+    font-family: HelveticaNeue, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #898989;
+  }
+  .formLaptopDetails {
+    margin: 0;
+    width: 100%;
+  }
+  .formLaptopDetails .container {
+    width: 390px;
+  }
+  .uploadPhotoContainer {
+    margin: 0px 16px;
+    height: fit-content;
+    margin-bottom: 41px;
+  }
+  .uploadPhoto {
+    height: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    row-gap: 12px;
+    height: 244px;
+  }
+  .uploadLabel {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .uploadPhoto label.text {
+    color: transparent;
+    font-size: 0px;
+  }
+  .uploadPhoto label.text::after {
+    content: "ლეპტოპის ფოტოს ატვირთვა";
+    position: absolute;
+    width: 146px;
+    height: 52px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    color: #4386a9;
+    text-align: center;
+    left: 100px;
+  }
+
+  .uploadPhoto .error.img {
+    margin-top: 12px;
+    width: 23px;
+    height: 21px;
+  }
+
+  .mobile.img {
+    margin-top: 20px;
+  }
+
+  .photoInfoContainer {
+    margin-bottom: 0px;
+  }
+
+  .photoInfoContainer .photoInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .photoInfoContainer .acceptedImage {
+    margin-right: 15px;
+    position: absolute;
+  }
+
+  .photoInfoContainer .photoInfo label {
+    margin-left: 37px;
+    margin-right: 0px;
+    width: 133px;
+    font-size: 12px;
+    font-weight: 400;
+  }
+
+  .photoInfoContainer .button {
+    width: 187px;
+    height: 41px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .field.laptopName {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .field.laptopName .laptopNameContainer {
+    margin-bottom: 26px;
+    width: 358px;
+  }
+
+  .field .labelLaptopName {
+    width: 358px;
+  }
+
+  .field.laptopBrand .laptopBrandcontainer {
+    width: 358px;
+  }
+
+  .field.laptopBrand select {
+    width: 358px;
+  }
+
+  .dividerLine {
+    border: 10px solid #ebebeb;
+  }
+
+  .CPUField .inputsContainer {
+    flex-direction: column;
+  }
+
+  .CPUField .CPUBrand {
+    width: 358px;
+    margin-bottom: 42px;
+  }
+
+  .labelCPUCores {
+    width: 358px;
+  }
+  .labelCPUCores .CPUCoresContainer {
+    margin-left: 0;
+    margin-bottom: 22px;
+  }
+  .inputCPUCores {
+    width: 358px;
+  }
+  .labelCPUThreads {
+    width: 358px;
+  }
+  .labelCPUThreads .CPUThreadsContainer {
+    margin-left: 0;
+    width: 100%;
+  }
+  .inputCPUThreads {
+    width: 100%;
+  }
+  .memoryInputsContainer {
+    flex-direction: column;
+    margin-left: 16px;
+    width: 358px;
+  }
+  .RAM {
+    margin-right: 0px;
+    width: 358px;
+  }
+  .laptopInfoContainer {
+    width: 358px;
+    display: flex;
+    margin-bottom: 52px;
+    flex-direction: column;
+    margin-left: 15px;
+  }
+  .date {
+    width: 358px;
+    margin-bottom: 25px;
+  }
+  .priceContainer {
+    display: flex;
+    /* justify-content: right; */
+    align-items: center;
+    position: relative;
+    width: 358px;
+  }
+  .labelPrice {
+    width: 100%;
+  }
+  .price {
+    width: 100%;
+  }
+  .conditionInputsContainer {
+    margin-left: 16px;
+    width: 358px;
+  }
+
+  .successContainer .popup {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .successContainer .popup .successMessage {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+    width: 172px;
+    margin-bottom: 120px;
+  }
+  .mobile.img {
+    display: block;
+  }
+}
