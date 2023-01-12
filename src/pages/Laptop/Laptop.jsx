@@ -1,10 +1,9 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { useParams, useLocation, useNavigate } from "react-router-dom";
-import LeftArrow from "../../assets/photos/LeftArrow.svg";
-import "./styles.css";
-import imege from "../../assets/photos/DesktopLandingImage.png";
-import InfoLabel from "./components/InfoLabel";
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import LeftArrow from '../../assets/photos/LeftArrow.svg';
+import './styles.css';
+import InfoLabel from './components/InfoLabel';
 
 const Laptop = (props) => {
   const { token } = props;
@@ -17,7 +16,7 @@ const Laptop = (props) => {
   const [positionName, setPositionName] = useState();
   const [laptopBrand, setLaptopBrand] = useState();
   const navigate = useNavigate();
-  let imagePath = "";
+  let imagePath = '';
 
   // console.log(laptopInfo);
   // console.log(userInfo);
@@ -32,18 +31,19 @@ const Laptop = (props) => {
 
   const getImagePath = () => {
     if (!laptopInfo) return;
-    imagePath = "https://pcfy.redberryinternship.ge" + laptopInfo.image;
+    imagePath = 'https://pcfy.redberryinternship.ge' + laptopInfo.image;
     return imagePath;
   };
 
   useEffect(() => {
     getImagePath();
     getLaptopBrand();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [laptopInfo]);
 
   const getTeamName = () => {
     if (!userInfo) return;
-    fetch("https://pcfy.redberryinternship.ge/api/teams")
+    fetch('https://pcfy.redberryinternship.ge/api/teams')
       .then((res) => res.json())
       .then((data) => data.data)
       .then((teams) => {
@@ -57,7 +57,7 @@ const Laptop = (props) => {
 
   const getPositionName = () => {
     if (!userInfo) return;
-    fetch("https://pcfy.redberryinternship.ge/api/positions")
+    fetch('https://pcfy.redberryinternship.ge/api/positions')
       .then((res) => res.json())
       .then((data) => data.data)
       .then((positions) => {
@@ -71,7 +71,7 @@ const Laptop = (props) => {
 
   const getLaptopBrand = () => {
     if (!laptopInfo) return;
-    fetch("https://pcfy.redberryinternship.ge/api/brands")
+    fetch('https://pcfy.redberryinternship.ge/api/brands')
       .then((res) => res.json())
       .then((data) => data.data)
       .then((brands) => {
@@ -86,6 +86,7 @@ const Laptop = (props) => {
   useEffect(() => {
     getTeamName();
     getPositionName();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [userInfo]);
   const getLaptopInfo = () => {
     fetch(laptopPath)
@@ -98,6 +99,7 @@ const Laptop = (props) => {
   };
   useEffect(() => {
     getLaptopInfo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (!laptopInfo && !userInfo) {
     return <h1>Loading...</h1>;
@@ -161,7 +163,7 @@ const Laptop = (props) => {
             <div className="infoDivider bottom">
               <div className="laptopState cont">
                 <InfoLabel info="ლეპტოპის მდგომარეობა:">
-                  {laptopInfo.state === "new" ? "ახალი" : "მეორადი"}
+                  {laptopInfo.state === 'new' ? 'ახალი' : 'მეორადი'}
                 </InfoLabel>
                 <InfoLabel info="ლეპტოპის ფასი:">
                   {laptopInfo.price} ₾
@@ -171,7 +173,7 @@ const Laptop = (props) => {
                 <InfoLabel info="შეძენის რიცხვი:">
                   {laptopInfo.purchase_date
                     ? laptopInfo.purchase_date
-                    : "არ არის ინფო"}
+                    : 'არ არის ინფო'}
                 </InfoLabel>
               </div>
             </div>
